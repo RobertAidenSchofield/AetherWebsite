@@ -1,0 +1,26 @@
+---
+import site from "../../site.config.mjs";
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/"><img src="/img/glyph.svg" alt="" width="30" height="30" />Aether</a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/setup/">Setup guides</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/anti-piracy/">Anti-piracy</a>
+        <a href={site.discordURL}>Discord</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <p>Aether is a media player and includes no content. You are responsible for only adding sources you're entitled to use.</p>
+      <p>
+        This product uses the TMDB API but is not endorsed or certified by TMDB. Apple, Apple TV, iPhone, iPad, Mac and
+        Apple Vision Pro are trademarks of Apple Inc. Jellyfin, Emby, Plex, Trakt and other names belong to their owners.
+      </p>
+      <p>© {new Date().getFullYear()} Robert Schofield</p>
+    </div>
+  </div>
+</footer>

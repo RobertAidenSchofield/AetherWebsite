@@ -1,0 +1,117 @@
+---
+import site from "../../site.config.mjs";
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Privacy Policy — Aether" description="Aether's privacy policy: no account, no analytics, no ads. What stays on your device, what syncs through your iCloud, and which services Aether contacts.">
+
+    <section class="page-head">
+      <div class="narrow">
+        <span class="eyebrow">Privacy policy</span>
+        <h1>Your viewing stays yours.</h1>
+        <p class="muted">Effective 31 October 2026</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="narrow prose">
+        <section>
+          <h2>In short</h2>
+          <ul>
+            <li><strong>No account.</strong> Aether has no sign-up, and its developer runs no servers that your data passes through.</li>
+            <li><strong>No analytics, ads or tracking.</strong> Aether contains no analytics or advertising code and doesn't track you across apps or websites.</li>
+            <li><strong>Your data stays with you</strong> — on your device, and in your own iCloud account if you use iCloud.</li>
+            <li><strong>Aether talks to services directly from your device</strong>: your provider or server, and the metadata services listed below. Optional services such as Trakt are only contacted if you connect them.</li>
+          </ul>
+          <p>This policy covers the Aether app for iPhone, iPad, Mac, Apple TV and Apple Vision Pro, and this website. "We" means Aether's developer, Robert Schofield.</p>
+        </section>
+
+        <section>
+          <h2>What stays on your device</h2>
+          <ul>
+            <li><strong>Your catalogue</strong> — channels, the TV guide, movies and series from your sources — is downloaded and indexed on the device.</li>
+            <li><strong>Artwork and downloads</strong> are stored on the device. You can clear them in Settings → Storage &amp; Cache.</li>
+            <li><strong>Sign-ins to optional services</strong> (Trakt, Simkl, OpenSubtitles, PublicMetaDB) are kept in the device's Keychain.</li>
+            <li><strong>A diagnostic log and performance measurements</strong> are kept on the device to help fix problems. Addresses, usernames and passwords are removed before anything is written. They only leave the device if you send a diagnostic report yourself, and you can read the report first.</li>
+            <li><strong>Search and live captions</strong> run on the device. Captions use Apple's speech recognition in on-device mode, so audio is not sent anywhere.</li>
+            <li><strong>Spotlight and Siri</strong> — titles and channels are indexed in your device's own Spotlight index so you can find and open them.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>What syncs through your iCloud</h2>
+          <p>If you're signed in to iCloud, Aether keeps your setup in step across your devices using your <strong>private iCloud database</strong>. That database belongs to your Apple Account: we can't see or access it. Aether syncs:</p>
+          <ul>
+            <li>your sources — names, addresses, and logins (usernames, passwords and Stalker MAC addresses are <strong>end-to-end encrypted</strong>);</li>
+            <li>guide (XMLTV) sources;</li>
+            <li>profiles, watch progress, watched marks and favourites;</li>
+            <li>parental control settings;</li>
+            <li>followed sports teams and leagues, and Live TV preferences.</li>
+          </ul>
+          <p>Your catalogues are not synced; each device downloads them from your sources. Apple's handling of iCloud data is covered by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
+        </section>
+
+        <section>
+          <h2>Services Aether contacts</h2>
+          <p>Aether connects to these services directly from your device. Like any internet request, each one can see your device's IP address. Their own privacy policies apply to what they receive.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Service</th><th>When</th><th>What it receives</th></tr></thead>
+              <tbody>
+                <tr><td>Your provider or server</td><td>For every source you add</td><td>Your login, and requests for the catalogue, guide and streams you play.</td></tr>
+                <tr><td>TMDB</td><td>To show artwork, details, cast and trailers</td><td>Titles and years, or the TMDB and IMDb identifiers, of items in your library.</td></tr>
+                <tr><td>MDBList</td><td>To show ratings</td><td>TMDB and IMDb identifiers.</td></tr>
+                <tr><td>IntroDB</td><td>For Skip Intro and Skip Recap</td><td>The identifier, season and episode of what's playing.</td></tr>
+                <tr><td>ESPN</td><td>When you use Sports</td><td>Which leagues, teams and matches to show. Nothing about you.</td></tr>
+                <tr><td>OpenSubtitles</td><td>When you search for subtitles</td><td>The title, its identifiers and the language; your OpenSubtitles login if you sign in.</td></tr>
+                <tr><td>YouTube</td><td>When you play a trailer</td><td>The trailer's video, opened in YouTube.</td></tr>
+                <tr><td>Trakt, Simkl</td><td>Only if you connect them</td><td>What you watch, your progress, watched marks and watchlist, so they stay in step.</td></tr>
+                <tr><td>PublicMetaDB</td><td>Only if you connect it</td><td>Watch history and progress; identifiers to look up skip times.</td></tr>
+                <tr><td>BetterPosters</td><td>Only if you turn it on</td><td>TMDB or IMDb identifiers of the posters on screen.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Aether never sends your provider or server logins to any service other than the one they belong to.</p>
+        </section>
+
+        <section>
+          <h2>Permissions</h2>
+          <ul>
+            <li><strong>Local network</strong> — to find media servers on your network and play from servers and shares at home.</li>
+            <li><strong>Speech recognition</strong> — only if you turn on live captions, which are generated on the device.</li>
+            <li><strong>Notifications</strong> — only if you allow them, for kick-offs of teams you follow and new episodes of shows you favourite. They're scheduled on the device.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Diagnostic reports</h2>
+          <p>When you choose <strong>Send Diagnostic Report</strong>, Aether prepares a report with your device model, system version, app settings, recent playback problems and performance measurements. Playlist names, addresses, usernames, passwords and MAC addresses are never included. You can read the report before sending it, and it's sent the way you choose — for example by email. We use reports only to fix problems, and delete them when they're no longer needed.</p>
+        </section>
+
+        <section>
+          <h2>This website</h2>
+          <p>This website uses no cookies, analytics or tracking. The company that hosts it may keep standard server logs, such as IP addresses and the pages requested, for security and reliability.</p>
+        </section>
+
+        <section>
+          <h2>Children</h2>
+          <p>Aether isn't directed at children. Profiles can be marked as a child's to hide restricted categories and lock sections behind a PIN.</p>
+        </section>
+
+        <section>
+          <h2>Your choices</h2>
+          <ul>
+            <li><strong>Delete data on a device</strong> by deleting the app, or clear artwork and downloads in Settings → Storage &amp; Cache.</li>
+            <li><strong>Delete data in iCloud</strong>: on iPhone or iPad, open Settings → [your name] → iCloud → Storage → Aether, and delete its data.</li>
+            <li><strong>Disconnect a service</strong> in Settings → Connected Services. To remove what a service holds, use that service's own settings.</li>
+          </ul>
+          <p>Because we don't hold your data, we can't access, export or delete it for you — but we're happy to help you do it. You also have rights under the privacy laws where you live, such as the UK and EU GDPR.</p>
+        </section>
+
+        <section>
+          <h2>Changes and contact</h2>
+          <p>If this policy changes, the new version will be posted here with a new effective date. Questions? Email <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.</p>
+        </section>
+      </div>
+    </section>
+</Base>

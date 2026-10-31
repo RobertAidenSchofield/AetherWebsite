@@ -1,0 +1,281 @@
+---
+import site from "../../site.config.mjs";
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon";
+import HeroTV from "../components/HeroTV";
+import GuideDemo from "../components/GuideDemo";
+import EngineDemo from "../components/EngineDemo";
+import LinkPhone from "../components/LinkPhone";
+import PlatformTabs from "../components/PlatformTabs";
+
+const privacy = [
+  { icon: "person", title: "No account", text: "There's nothing to sign up for. Aether runs no servers of its own and never sees what you watch." },
+  { icon: "eyeOff", title: "No ads or tracking", text: "No analytics kits, no advertising and no tracking across apps or websites." },
+  { icon: "cloud", title: "Encrypted in your iCloud", text: "Your sources and logins sync end-to-end encrypted in your own iCloud account." },
+  { icon: "chip", title: "Smart, on device", text: "Search by description and live captions run on your device, not in the cloud." },
+] as const;
+
+const faq = [
+  {
+    q: "What do I need to use Aether?",
+    a: "Either an IPTV subscription — the link or login your provider sent (Xtream Codes, M3U or a Stalker portal) — or your own media server: Jellyfin, Emby, Plex, Silo or a WebDAV share. You can add both.",
+  },
+  {
+    q: "Do I need to create an account?",
+    a: "No. Aether has no account of its own. Trakt, Simkl, OpenSubtitles and PublicMetaDB are optional connections you can add later in Settings → Connected Services.",
+  },
+  {
+    q: "Will my Apple TV get what I set up on my iPhone?",
+    a: "Yes, when both use the same iCloud account. Your sources, profiles, watch progress, favourites and followed teams sync between them. On a new Apple TV, choose Set Up with iPhone and scan the code.",
+  },
+  {
+    q: "Can I watch offline?",
+    a: "On iPhone, iPad and Mac you can download movies and episodes from Xtream and M3U playlists, then play them without a connection.",
+  },
+];
+---
+
+<Base
+  title="Aether — IPTV & Media Server Player for Apple Devices"
+  description="Aether plays your IPTV subscription and your own Jellyfin, Emby or Plex server with a real TV guide, rich artwork and a player built to keep going. For iPhone, iPad, Mac, Apple TV and Apple Vision Pro."
+>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <img class="hero-icon" src="/img/icon.svg" alt="" width="88" height="88" />
+        <span class="eyebrow">IPTV &amp; media server player</span>
+        <h1>Everything you watch, <span class="gradient-text">in one luminous player.</span></h1>
+        <p class="lede">
+          Aether plays your IPTV subscription and your own media server — Jellyfin, Emby, Plex — with a real TV guide, beautiful
+          artwork and a player built to keep going.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary btn-store" href={site.appStoreURL}>
+            <Icon name="download" size={18} strokeWidth={2.2} /> Download on the App Store
+          </a>
+          <a class="btn" href="#setup">Try the setup</a>
+        </div>
+        <p class="hero-note">For iPhone, iPad, Mac, Apple TV and Apple Vision Pro. Aether includes no channels or content — you bring your own.</p>
+      </div>
+
+      <div class="hero-visual">
+        <HeroTV client:load />
+        <p class="hero-hint">Click a title, or focus the screen and use ← →</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Two players in one</span>
+        <h2>Your provider and your server, side by side.</h2>
+        <p class="lede">Choose what you watch with when you start. Every screen follows the source it belongs to, so there's never a "current playlist" to switch.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card side" data-reveal>
+          <div class="side-head">
+            <span class="icon-dot"><Icon name="antenna" /></span>
+            <div>
+              <span class="pill live">Live IPTV</span>
+              <h3>IPTV Subscription</h3>
+            </div>
+          </div>
+          <p>Live TV, a guide, movies and series from your provider.</p>
+          <div class="chips">
+            <span class="chip">Xtream Codes</span><span class="chip">M3U / M3U8</span><span class="chip">Stalker portals</span><span class="chip">XMLTV guides</span>
+          </div>
+          <ul class="checks">
+            <li><strong>Live TV with a real guide</strong> — channels by category and a multi-day timeline.</li>
+            <li><strong>Catch-up</strong> on Xtream and M3U, for programmes that already aired.</li>
+            <li><strong>Multi-View</strong> — up to four channels at once.</li>
+            <li><strong>Live scores</strong> for 150+ competitions, matched to channels you already have.</li>
+          </ul>
+        </article>
+
+        <article class="card side server" data-reveal>
+          <div class="side-head">
+            <span class="icon-dot"><Icon name="server" /></span>
+            <div>
+              <span class="pill server">Media server</span>
+              <h3>Your Own Library</h3>
+            </div>
+          </div>
+          <p>Your films and shows on your own server or file share.</p>
+          <div class="chips">
+            <span class="chip">Jellyfin</span><span class="chip">Emby</span><span class="chip">Plex</span><span class="chip">Silo</span><span class="chip">WebDAV</span>
+          </div>
+          <ul class="checks">
+            <li><strong>Artwork, cast, trailers and ratings</strong> from TMDB, IMDb, Rotten Tomatoes, Metacritic and Letterboxd.</li>
+            <li><strong>Explore, Trending and For You</strong> — discovery built around your library.</li>
+            <li><strong>Trakt and Simkl</strong> keep your history and watchlists in step.</li>
+            <li><strong>Choose Stream</strong> lists every version your server has, with its tracks and bitrate.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="card shared-note" data-reveal>Both sides share the library, search, favourites, downloads, Continue Watching and the player.</p>
+    </div>
+  </section>
+
+  <section id="live-tv">
+    <div class="wrap split">
+      <div class="copy" data-reveal>
+        <span class="eyebrow">Live TV</span>
+        <h2>A guide that feels like television.</h2>
+        <p class="lede">Channels by category, a scrollable multi-day guide from your provider or your own XMLTV sources, and a channel switcher right inside the player.</p>
+        <ul class="checks">
+          <li><strong>Catch-up</strong> for programmes that already aired.</li>
+          <li><strong>Multi-View</strong> for up to four channels in a grid.</li>
+          <li><strong>Sports</strong> — follow teams and open a match on a channel you have.</li>
+          <li><strong>On Apple TV</strong>, a live preview of the focused channel and quick zapping.</li>
+        </ul>
+        <p class="demo-hint"><Icon name="arrow" size={16} strokeWidth={2} /> This guide runs on your clock. Pick a programme to see what you could do with it.</p>
+      </div>
+      <div data-reveal>
+        <GuideDemo client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section id="player">
+    <div class="wrap split reverse">
+      <div class="copy" data-reveal>
+        <span class="eyebrow">The player</span>
+        <h2>Built to keep playing.</h2>
+        <p class="lede">Aether carries four playback engines in a priority list. If a stream fails or stalls, playback moves on to the next one by itself.</p>
+        <p class="muted">
+          <strong class="text-strong">Aether Engine</strong> <span class="pill tiny">Beta</span> is our own engine, built on FFmpeg&nbsp;9 for
+          long-running live streams. It reconnects inside the stream, warns before a stall instead of freezing, quietly builds a few seconds
+          of cushion, and recovers from the broadcast clock wrap that freezes other players after a day on air.
+        </p>
+        <ul class="checks">
+          <li><strong>Skip Intro and Next Up</strong> for series.</li>
+          <li><strong>Subtitles your way</strong> — search OpenSubtitles and style them fully.</li>
+          <li><strong>Live captions</strong> generated on your device when a stream has none.</li>
+          <li><strong>Picture in Picture, AirPlay</strong> and lock-screen controls.</li>
+          <li><strong>Prefer another player?</strong> Hand off to Infuse, VLC or VidHub.</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <EngineDemo client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section id="setup">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Setup</span>
+        <h2>Paste a link. That's the setup.</h2>
+        <p class="lede">
+          Providers send links in a handful of formats, and Aether recognises all of them. Try it: paste one below and watch the form fill
+          itself in, exactly as it does in the app.
+        </p>
+      </div>
+      <div data-reveal>
+        <LinkPhone client:visible />
+      </div>
+      <div class="grid grid-3 setup-more">
+        <div class="card feature" data-reveal>
+          <span class="icon-dot"><Icon name="server" /></span>
+          <h3>Servers find themselves</h3>
+          <p>Jellyfin, Emby and Plex servers on your Wi-Fi appear as you open the form.</p>
+        </div>
+        <div class="card feature" data-reveal>
+          <span class="icon-dot"><Icon name="lock" /></span>
+          <h3>Sign in with a code</h3>
+          <p>Jellyfin Quick Connect and Plex sign-in use a short code instead of a password.</p>
+        </div>
+        <div class="card feature" data-reveal>
+          <span class="icon-dot"><Icon name="appletv" /></span>
+          <h3>Set up Apple TV from iPhone</h3>
+          <p>Scan the code on the TV, add your source on the phone, and it arrives through iCloud.</p>
+        </div>
+      </div>
+      <p class="center-link"><a href="/setup/">Read the setup guides →</a></p>
+    </div>
+  </section>
+
+  <section id="platforms">
+    <div class="wrap">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Every Apple screen</span>
+        <h2>One app for every screen you own.</h2>
+        <p class="lede">Profiles, watch progress, favourites and followed teams sync through your iCloud account, so you pick up wherever you left off.</p>
+      </div>
+      <div data-reveal>
+        <PlatformTabs client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Privacy</span>
+        <h2>What you watch stays yours.</h2>
+      </div>
+      <div class="privacy-band">
+        {privacy.map((item) => (
+          <div class="card feature" data-reveal>
+            <span class="icon-dot"><Icon name={item.icon} /></span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+      <p class="center-link"><a href="/privacy/">Read the privacy policy →</a></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="narrow">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Questions</span>
+        <h2>Good to know.</h2>
+      </div>
+
+      <div class="notice" data-reveal>
+        <Icon name="warning" strokeWidth={2} />
+        <div>
+          <p><strong>Aether is a player. It comes with no channels, streams or media.</strong></p>
+          <p class="muted">Add only sources you're entitled to watch. <a href="/anti-piracy/">Our anti-piracy policy</a></p>
+        </div>
+      </div>
+
+      <div class="faq" data-reveal>
+        {faq.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <div class="answer"><p>{item.a}</p></div>
+          </details>
+        ))}
+        <details>
+          <summary>A channel won't play. What can I try?</summary>
+          <div class="answer">
+            <p>
+              Aether already tries its other engines when one fails. If a stream still won't start, check it plays in your provider's own
+              app, and that you're not over your subscription's connection limit. The <a href="/support/#troubleshooting">troubleshooting
+              guide</a> covers more.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="narrow">
+      <div class="card cta" data-reveal>
+        <img class="hero-icon" src="/img/icon.svg" alt="" width="88" height="88" />
+        <h2>Ready when you are.</h2>
+        <p class="lede">Bring your provider or your server. Aether does the rest.</p>
+        <a class="btn btn-primary btn-store" href={site.appStoreURL}>
+          <Icon name="download" size={18} strokeWidth={2.2} /> Download on the App Store
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

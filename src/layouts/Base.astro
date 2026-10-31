@@ -1,0 +1,101 @@
+---
+// Every page's frame: head metadata, header, footer, and the small scripts
+// the whole site shares (menu, header on scroll, reveal on scroll).
+import "../styles/global.css";
+import site from "../../site.config.mjs";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Hides the header and footer, for single-purpose pages like /add. */
+  bare?: boolean;
+  noindex?: boolean;
+  /** Passed to the Smart App Banner, e.g. a deep link the app should open. */
+  appArgument?: string;
+}
+
+const { title, description, bare = false, noindex = false, appArgument } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/img/icon-512.png", Astro.site);
+const banner = `app-id=${site.appStoreID}${appArgument ? `, app-argument=${appArgument}` : ""}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07080c" />
+    <meta name="apple-itunes-app" content={banner} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/img/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aether" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {!bare && <Header />}
+    <main id="main">
+      <slot />
+    </main>
+    {!bare && <Footer />}
+
+    <script>
+      // Phone-width menu.
+      const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+      if (toggle && nav) {
+        const setOpen = (open: boolean) => {
+          nav.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        };
+        toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
+        nav.addEventListener("click", (event) => {
+          if ((event.target as Element).closest("a")) setOpen(false);
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") setOpen(false);
+        });
+      }
+
+      // The header gains a hairline once the page scrolls under it.
+      const header = document.querySelector(".site-header");
+      const onScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 8);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      // Sections ease in as they reach the viewport (CSS skips this when the
+      // viewer prefers reduced motion).
+      const reveal = document.querySelectorAll("[data-reveal]");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+        );
+        reveal.forEach((element) => observer.observe(element));
+      } else {
+        reveal.forEach((element) => element.classList.add("is-visible"));
+      }
+    </script>
+  </body>
+</html>

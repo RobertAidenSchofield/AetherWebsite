@@ -1,0 +1,30 @@
+---
+import site from "../../site.config.mjs";
+import Icon from "./Icon";
+
+const links = [
+  { href: "/#features", label: "Features" },
+  { href: "/#player", label: "Player" },
+  { href: "/setup/", label: "Setup" },
+  { href: "/support/", label: "Support" },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Aether home">
+      <img src="/img/glyph.svg" alt="" width="30" height="30" />
+      Aether
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <Icon name="menu" size={20} strokeWidth={2} />
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      {links.map(({ href, label }) => (
+        <a href={href} aria-current={path.startsWith(href) && !href.includes("#") ? "page" : undefined}>{label}</a>
+      ))}
+      <a class="nav-cta" href={site.appStoreURL}>Download</a>
+    </nav>
+  </div>
+</header>

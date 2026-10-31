@@ -1,0 +1,50 @@
+---
+import site from "../../site.config.mjs";
+import Base from "../layouts/Base.astro";
+import Troubleshooting from "../components/Troubleshooting";
+---
+
+<Base title="Support — Aether" description="Get help with Aether: troubleshooting for servers, channels, the TV guide and Apple TV, diagnostic reports, and how to contact us.">
+
+    <section class="page-head">
+      <div class="narrow">
+        <span class="eyebrow">Support</span>
+        <h1>How can we help?</h1>
+        <p class="lede">Most problems are covered below. If yours isn't, send a diagnostic report or get in touch.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="narrow" style="display:grid;gap:56px">
+        <div class="contact-cards">
+          <div class="card">
+            <h3>Diagnostic report</h3>
+            <p>In Aether, open <span class="path">Settings → Send Diagnostic Report</span>. You can read the whole report before sending it. Addresses, usernames and passwords are never included.</p>
+          </div>
+          <div class="card">
+            <h3>Email</h3>
+            <p>Write to <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>. Tell us your device, what you were doing and what you expected to happen.</p>
+          </div>
+          <div class="card">
+            <h3>Discord</h3>
+            <p>Ask the community, follow betas and suggest features on <a href={site.discordURL}>our Discord server</a>.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
+          <div>
+            <p><strong>We can't help you find channels, playlists or servers.</strong></p>
+            <p class="muted">Aether includes no content. Questions about what a subscription carries belong with your provider. <a href="/anti-piracy/">Anti-piracy policy</a></p>
+          </div>
+        </div>
+
+        <div id="troubleshooting" style="display:grid;gap:20px">
+          <h2>Troubleshooting</h2>
+          <Troubleshooting client:visible email={site.supportEmail} />
+        </div>
+
+        <p class="muted">Looking for how to add a source? See the <a href="/setup/">setup guides</a>.</p>
+      </div>
+    </section>
+</Base>

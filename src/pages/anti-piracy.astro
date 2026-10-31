@@ -1,0 +1,68 @@
+---
+import site from "../../site.config.mjs";
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Anti-Piracy Policy — Aether" description="Aether is a media player. It ships no channels, streams, playlists or servers, and never suggests where to find any.">
+
+    <section class="page-head">
+      <div class="narrow">
+        <span class="eyebrow">Anti-piracy policy</span>
+        <h1>A player, not a source.</h1>
+        <p class="lede">Aether plays sources you add yourself and ships none of its own.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="narrow prose">
+        <section>
+          <h2>Aether provides no content</h2>
+          <p>It comes with no channels, streams, playlists, servers or media, and it never suggests where to find any. You are responsible for only adding sources you are legally entitled to use.</p>
+        </section>
+
+        <section>
+          <h2>What Aether does</h2>
+          <ul>
+            <li>Plays IPTV you subscribe to (Xtream Codes, M3U, Stalker portals) using credentials you enter.</li>
+            <li>Plays your own media from servers you run or have access to: Jellyfin, Emby, Plex, WebDAV and similar.</li>
+            <li>Fetches artwork, descriptions and ratings from public metadata services (TMDB, MDBList), and syncs watch history with Trakt or Simkl when you connect them.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>What Aether does not do</h2>
+          <ul>
+            <li>Bundle, recommend, list or link to any channel, stream, playlist, server, add-on or subscription.</li>
+            <li>Pre-configure any source. A fresh install plays nothing until you add one.</li>
+            <li>Search for, index or aggregate streams. When a server you added offers several versions of a title, Aether shows the list that server returns; the server decides what is in it.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Permitted use</h2>
+          <p>Use Aether only with content you have the right to watch, for example:</p>
+          <ul>
+            <li>an IPTV service that is licensed to distribute what it carries;</li>
+            <li>your own playlists, recordings and media files;</li>
+            <li>free-to-air, public-domain and openly licensed streams.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Not permitted in our community</h2>
+          <p>On this website, our Discord server and any other community space for Aether:</p>
+          <ul>
+            <li>requesting, sharing, selling or advertising unlicensed playlists, credentials, servers, add-ons or streams;</li>
+            <li>linking to piracy services or "free IPTV" lists;</li>
+            <li>asking for help configuring Aether to reach unlicensed content.</li>
+          </ul>
+          <p>Such posts are removed, and repeat offenders are banned.</p>
+        </section>
+
+        <section>
+          <h2>Reporting infringement</h2>
+          <p>If you are a rights holder and believe Aether, this website or its community spaces are being used to infringe your rights, email <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> with the details. Reports are reviewed promptly. Because Aether hosts no content, content itself must be taken down at the service that distributes it.</p>
+        </section>
+      </div>
+    </section>
+</Base>
