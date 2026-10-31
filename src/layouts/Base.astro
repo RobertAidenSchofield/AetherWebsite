@@ -2,7 +2,6 @@
 // Every page's frame: head metadata, header, footer, and the small scripts
 // the whole site shares (menu, header on scroll, reveal on scroll).
 import "../styles/global.css";
-import site from "../../site.config.mjs";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -12,14 +11,11 @@ interface Props {
   /** Hides the header and footer, for single-purpose pages like /add. */
   bare?: boolean;
   noindex?: boolean;
-  /** Passed to the Smart App Banner, e.g. a deep link the app should open. */
-  appArgument?: string;
 }
 
-const { title, description, bare = false, noindex = false, appArgument } = Astro.props;
+const { title, description, bare = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL("/img/icon-512.png", Astro.site);
-const banner = `app-id=${site.appStoreID}${appArgument ? `, app-argument=${appArgument}` : ""}`;
 ---
 
 <!doctype html>
@@ -30,7 +26,6 @@ const banner = `app-id=${site.appStoreID}${appArgument ? `, app-argument=${appAr
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#07080c" />
-    <meta name="apple-itunes-app" content={banner} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/img/icon.svg" type="image/svg+xml" />

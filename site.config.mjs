@@ -5,7 +5,7 @@ export default {
   url: "https://example.com",
   /** Shown on Support, Privacy and Anti-piracy. */
   supportEmail: "support@example.com",
-  appStoreURL: "https://apps.apple.com/app/id6779551584",
-  appStoreID: "6779551584",
+  /** Aether's public beta. Download buttons point here until it's on the App Store. */
+  testFlightURL: "https://testflight.apple.com/join/bmAGafTY",
   discordURL: "https://discord.gg/DMnQfr69Ug",
 };

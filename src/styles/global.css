@@ -1828,6 +1828,11 @@ tr:last-child td {
   font-size: 15px;
 }
 
+/* The cards are too narrow to keep a menu path on one line. */
+.contact-cards .path {
+  white-space: normal;
+}
+
 @media (max-width: 760px) {
   .contact-cards {
     grid-template-columns: minmax(0, 1fr);

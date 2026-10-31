@@ -24,7 +24,7 @@ const path = Astro.url.pathname;
       {links.map(({ href, label }) => (
         <a href={href} aria-current={path.startsWith(href) && !href.includes("#") ? "page" : undefined}>{label}</a>
       ))}
-      <a class="nav-cta" href={site.appStoreURL}>Download</a>
+      <a class="nav-cta" href={site.testFlightURL}>Download</a>
     </nav>
   </div>
 </header>

@@ -1,6 +1,6 @@
 # Aether website
 
-The marketing, support and legal site for [Aether](https://apps.apple.com/app/id6779551584), built with [Astro](https://astro.build) and React.
+The marketing, support and legal site for [Aether](https://testflight.apple.com/join/bmAGafTY), built with [Astro](https://astro.build) and React.
 
 Pages are static HTML. Interactive parts are React components ("islands") that only load in the browser when they scroll into view, so the site stays fast and search engines see every word.
 
@@ -22,7 +22,7 @@ Everything site-wide is in **`site.config.mjs`**:
 |---|---|
 | `url` | Canonical links, social previews, `sitemap-index.xml`, `robots.txt` |
 | `supportEmail` | Support, Privacy and Anti-piracy pages |
-| `appStoreURL`, `appStoreID` | Download buttons, iOS Smart App Banner |
+| `testFlightURL` | Download buttons (the public TestFlight beta) |
 | `discordURL` | Footer and Support |
 
 Set `url` and `supportEmail` before publishing. Both still hold `example.com` placeholders.
@@ -76,7 +76,7 @@ Once the site is live, set these in App Store Connect under App Information:
 2. Map an incoming `https://<domain>/add` (`onContinueUserActivity(NSUserActivityTypeBrowsingWeb)`) to `DeepLink.addSource`.
 3. Change `OnboardingView.phoneSetupLink` to `https://<domain>/add`.
 
-The QR code then opens the add form when Aether is installed, and this site's `/add` page, with an App Store link, when it isn't.
+The QR code then opens the add form when Aether is installed, and this site's `/add` page, with a TestFlight link, when it isn't.
 
 ## Before publishing
 
