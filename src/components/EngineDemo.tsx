@@ -76,8 +76,6 @@ export default function EngineDemo() {
   useEffect(() => {
     if (run === 0) return;
     const steps = scripts[scenario];
-    setStep(-1);
-    setBuffer(0);
     const timers = steps.map((item, i) =>
       window.setTimeout(() => {
         setStep(i);
@@ -114,6 +112,10 @@ export default function EngineDemo() {
 
   const replay = (next: Scenario) => {
     started.current = true;
+    // Reset in the same render as the scenario switch: the scripts differ in
+    // length, so a stale step would index past the end of the new one.
+    setStep(-1);
+    setBuffer(0);
     setScenario(next);
     setRun((value) => value + 1);
   };
