@@ -2,7 +2,7 @@
 // schedule is laid out around the current time, the red line moves, and a
 // programme opens its details — with catch-up for ones that already aired on
 // channels that offer it. Channels and programmes are made up.
-import { type CSSProperties, useEffect, useMemo, useState } from "react";
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import Icon from "./Icon";
 
 type Show = { title: string; minutes: number; about: string };
@@ -72,7 +72,11 @@ const channels: Channel[] = [
   },
 ];
 
-const WINDOW = 120; // minutes shown
+/** Minutes shown: two hours, or one where the guide is phone-narrow. */
+const WINDOW = 120;
+const COMPACT_WINDOW = 60;
+/** Below this width the guide drops channel names and shows one hour. */
+const COMPACT_WIDTH = 560;
 const MINUTE = 60_000;
 
 type Slot = { channel: Channel; show: Show; start: Date; end: Date; key: string };
@@ -102,6 +106,16 @@ const FIXED = new Date(2026, 9, 31, 20, 43);
 
 export default function GuideDemo() {
   const [now, setNow] = useState(FIXED);
+  const [compact, setCompact] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    const observer = new ResizeObserver(([entry]) => setCompact(entry.contentRect.width < COMPACT_WIDTH));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   const [live, setLive] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -120,11 +134,18 @@ export default function GuideDemo() {
   // A two-hour window starting on the half hour before last, so "now" sits
   // in the first half like the app's guide.
   const start = new Date(now);
-  start.setMinutes(now.getMinutes() < 30 ? 0 : 30, 0, 0);
-  start.setTime(start.getTime() - 30 * MINUTE);
-  const end = new Date(start.getTime() + WINDOW * MINUTE);
-  const needle = (now.getTime() - start.getTime()) / (WINDOW * MINUTE);
-  const marks = [0, 30, 60, 90].map((offset) => new Date(start.getTime() + offset * MINUTE));
+  // "Now" sits a quarter to half way in: the full guide starts on the half
+  // hour before last, the one-hour compact guide a quarter hour before now.
+  const span = compact ? COMPACT_WINDOW : WINDOW;
+  if (compact) {
+    start.setMinutes(now.getMinutes() - (now.getMinutes() % 15) - 15, 0, 0);
+  } else {
+    start.setMinutes(now.getMinutes() < 30 ? 0 : 30, 0, 0);
+    start.setTime(start.getTime() - 30 * MINUTE);
+  }
+  const end = new Date(start.getTime() + span * MINUTE);
+  const needle = (now.getTime() - start.getTime()) / (span * MINUTE);
+  const marks = Array.from({ length: span / 30 }, (_, i) => new Date(start.getTime() + i * 30 * MINUTE));
 
   const rows = channels.map((channel) => schedule(channel, start, end));
   const all = rows.flat();
@@ -136,7 +157,7 @@ export default function GuideDemo() {
   const chosenState = state(chosen);
 
   return (
-    <div className="card guide">
+    <div className={`card guide${compact ? " is-compact" : ""}`} ref={root}>
       <div className="guide-inner">
         <div className="guide-top">
           <strong>TV Guide</strong>
@@ -149,7 +170,7 @@ export default function GuideDemo() {
           <div className="guide-corner" aria-hidden="true">
             ● Now
           </div>
-          <div className="guide-times" aria-hidden="true">
+          <div className="guide-times" style={{ gridTemplateColumns: `repeat(${marks.length}, 1fr)` }} aria-hidden="true">
             {marks.map((mark) => (
               <span key={mark.getTime()}>{format.format(mark)}</span>
             ))}

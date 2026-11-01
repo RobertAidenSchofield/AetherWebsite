@@ -119,6 +119,8 @@ export default function HeroTV() {
 
   const current = titles[index];
   // Keep the focused card in view the way tvOS scrolls a row.
+  // The TV scrolls the row to keep focus in view; the phone layout, one card
+  // wide, scrolls by `--index` instead (see .mock-row in global.css).
   const railOffset = Math.max(0, Math.min(index - 1, titles.length - 4));
 
   return (
@@ -195,7 +197,7 @@ export default function HeroTV() {
             <div className="mock-rail-title" aria-hidden="true">
               Continue Watching
             </div>
-            <div className="mock-row" style={{ transform: `translateX(calc(${railOffset} * -20.4cqw))` }}>
+            <div className="mock-row" style={{ "--offset": railOffset, "--index": index } as CSSProperties}>
               {titles.map((title, i) => (
                 <button
                   key={title.name}

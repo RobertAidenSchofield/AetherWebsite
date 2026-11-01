@@ -2813,3 +2813,325 @@ tr:last-child td {
 .linkdemo .phone {
   aspect-ratio: 9 / 16.4;
 }
+
+/* ================================================================
+ * Mocks at every width
+ *
+ * A drawn screen is only a fair picture of the app if it reads at the size
+ * it's shown. Below ~620px the Apple TV home becomes Aether's iPhone home —
+ * what a visitor on a phone would get — and the guide drops to one hour with
+ * logos only. Sizes stay in cqw of each mock, so it still scales as one image.
+ * ================================================================ */
+
+.mock-row {
+  transform: translateX(calc(var(--offset, 0) * -20.4cqw));
+}
+
+.hint-touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .hint-pointer {
+    display: none;
+  }
+
+  .hint-touch {
+    display: inline;
+  }
+}
+
+.hero-visual {
+  container: hero / inline-size;
+}
+
+@container hero (max-width: 620px) {
+  .tv {
+    width: min(330px, 100%);
+    margin-inline: auto;
+    aspect-ratio: 9 / 19.5;
+    padding: 3.2%;
+    border-radius: 14% / 6.5%;
+    background: linear-gradient(180deg, #252938, #10121a);
+  }
+
+  .tv-screen {
+    border-radius: 11.5% / 5.3%;
+  }
+
+  /* The Dynamic Island. */
+  .tv-screen::before {
+    content: "";
+    position: absolute;
+    top: 2.4%;
+    left: 50%;
+    width: 30%;
+    height: 3.2%;
+    transform: translateX(-50%);
+    border-radius: 99px;
+    background: #000;
+    z-index: 6;
+  }
+
+  .mock {
+    font-size: 4cqw;
+  }
+
+  /* The tab bar sits at the bottom on iPhone. Search is the separate circle
+     iOS 26 puts beside it, left out here for width. */
+  .mock-tabs {
+    top: auto;
+    bottom: 3.5cqw;
+    gap: 0;
+    padding: 1.2cqw;
+  }
+
+  .mock-tabs span {
+    padding: 1.8cqw 2.4cqw;
+    font-size: 3cqw;
+    white-space: nowrap;
+  }
+
+  .mock-tabs span:nth-child(5) {
+    display: none;
+  }
+
+  /* The hero is a card on iPhone, not the whole screen. */
+  .mock-hero {
+    inset: 7% 4% 38% 4%;
+    border-radius: 6cqw;
+    overflow: hidden;
+  }
+
+  .mock-hero::after {
+    background: linear-gradient(180deg, transparent 35%, rgba(7, 8, 12, 0.9) 100%);
+  }
+
+  .mock-hero-copy {
+    left: 9cqw;
+    right: 9cqw;
+    bottom: calc(38% + 5cqw);
+    max-width: none;
+    gap: 1.8cqw;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .mock-logo {
+    font-size: 10cqw;
+  }
+
+  .mock-logo.is-long {
+    font-size: 7.4cqw;
+  }
+
+  .mock-meta {
+    gap: 2cqw;
+    font-size: 3.3cqw;
+    justify-content: center;
+  }
+
+  .mock-pill {
+    font-size: 2.5cqw;
+    padding: 0.6cqw 1.6cqw;
+  }
+
+  .mock-plot {
+    font-size: 3.3cqw;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .mock-buttons {
+    gap: 2cqw;
+  }
+
+  .mock-btn {
+    padding: 2.2cqw 4.4cqw;
+    font-size: 3.4cqw;
+  }
+
+  .mock-btn svg {
+    width: 2.6cqw;
+    height: 2.6cqw;
+  }
+
+  .mock-dots {
+    bottom: calc(38% - 6cqw);
+    gap: 1.6cqw;
+  }
+
+  .mock-dots button {
+    width: 1.6cqw;
+    height: 1.6cqw;
+  }
+
+  .mock-dots button.is-active {
+    width: 5cqw;
+  }
+
+  .mock-rail {
+    left: 4cqw;
+    bottom: 22cqw;
+    gap: 2.4cqw;
+  }
+
+  .mock-rail-title {
+    font-size: 4.6cqw;
+  }
+
+  .mock-row {
+    gap: 3cqw;
+    transform: translateX(calc(var(--index, 0) * -63cqw));
+  }
+
+  .mock-wide {
+    flex-basis: 60cqw;
+    border-radius: 3cqw;
+  }
+
+  .mock-wide.focus,
+  .mock-wide.focus:hover {
+    transform: none;
+    margin-right: 0;
+    box-shadow: 0 0 0 0.6cqw var(--text);
+  }
+
+  .mock-wide .mock-wide-name {
+    left: 3cqw;
+    bottom: 4cqw;
+    font-size: 3.6cqw;
+  }
+
+  .mock-wide i {
+    left: 3cqw;
+    right: 3cqw;
+    bottom: 2cqw;
+    height: 0.9cqw;
+  }
+
+  .tv-pause {
+    top: 9%;
+    right: 9%;
+    bottom: auto;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* The compact guide (GuideDemo sets .is-compact under 560px). */
+.guide.is-compact .guide-inner {
+  font-size: 3.4cqw;
+}
+
+.guide.is-compact .guide-grid {
+  grid-template-columns: 17% 1fr;
+}
+
+.guide.is-compact .guide-top {
+  padding: 3.4cqw 4cqw;
+}
+
+.guide.is-compact .guide-top strong {
+  font-size: 4.6cqw;
+}
+
+.guide.is-compact .guide-clock {
+  font-size: 3.6cqw;
+}
+
+.guide.is-compact .guide-corner {
+  padding-left: 4cqw;
+  font-size: 3cqw;
+}
+
+.guide.is-compact .guide-times {
+  font-size: 3cqw;
+  padding: 2.2cqw 0;
+}
+
+.guide.is-compact .guide-channel {
+  height: 15cqw;
+  padding-left: 4cqw;
+}
+
+.guide.is-compact .guide-channel .num,
+.guide.is-compact .guide-channel .name {
+  display: none;
+}
+
+.guide.is-compact .guide-logo {
+  width: 9cqw;
+  height: 9cqw;
+  border-radius: 2cqw;
+  font-size: 2.6cqw;
+}
+
+.guide.is-compact .guide-line {
+  height: 15cqw;
+  gap: 1cqw;
+  padding: 1.4cqw 1cqw;
+}
+
+.guide.is-compact .guide-prog {
+  padding: 1.6cqw 2cqw;
+  border-radius: 2cqw;
+}
+
+.guide.is-compact .guide-prog b {
+  font-size: 3.3cqw;
+}
+
+.guide.is-compact .guide-prog small {
+  font-size: 2.8cqw;
+}
+
+.guide.is-compact .guide-replay {
+  width: 3cqw;
+  height: 3cqw;
+}
+
+.guide.is-compact .guide-needle {
+  left: calc(17% + 83% * clamp(0, var(--x, 0.36), 1));
+}
+
+.guide.is-compact .guide-detail {
+  gap: 3.4cqw;
+  padding: 4cqw;
+}
+
+.guide.is-compact .guide-detail-logo {
+  width: 12cqw;
+  height: 12cqw;
+  border-radius: 2.6cqw;
+  font-size: 3.4cqw;
+}
+
+.guide.is-compact .guide-detail-head strong {
+  font-size: 4.6cqw;
+}
+
+.guide.is-compact .guide-detail-head .pill {
+  font-size: 2.6cqw;
+  padding: 0.6cqw 1.8cqw;
+}
+
+.guide.is-compact .guide-detail-meta {
+  font-size: 3.1cqw;
+}
+
+.guide.is-compact .guide-detail p {
+  font-size: 3.4cqw;
+}
+
+.guide.is-compact .guide-detail-action {
+  padding: 2cqw 3.6cqw;
+  font-size: 3.2cqw;
+}
+
+.guide.is-compact .guide-detail-action svg {
+  width: 3cqw;
+  height: 3cqw;
+}
