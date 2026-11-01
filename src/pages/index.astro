@@ -29,6 +29,10 @@ const faq = [
     a: "Yes, when both use the same iCloud account. Your sources, profiles, watch progress, favourites and followed teams sync between them. On a new Apple TV, choose Set Up with iPhone and scan the code.",
   },
   {
+    q: "Is there an Android version?",
+    a: "Yes, in beta: Aether for Android TV, Fire TV and Android (Android 9 or later, arm64). It covers IPTV providers, Live TV with the guide, movies and series; media servers and more are coming. Download the APK from the button above, and see the setup guide for installing it on a TV.",
+  },
+  {
     q: "Can I watch offline?",
     a: "On iPhone, iPad and Mac you can download movies and episodes from Xtream and M3U playlists, then play them without a connection.",
   },
@@ -53,9 +57,14 @@ const faq = [
           <a class="btn btn-primary btn-store" href={site.testFlightURL}>
             <Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta
           </a>
-          <a class="btn" href="#setup">Try the setup</a>
+          <a class="btn" href={site.androidAPKURL}>
+            <Icon name="download" size={18} strokeWidth={2.2} /> Android TV beta (APK)
+          </a>
         </div>
-        <p class="hero-note">For iPhone, iPad, Mac, Apple TV and Apple Vision Pro. Aether includes no channels or content — you bring your own.</p>
+        <p class="hero-note">
+          TestFlight for iPhone, iPad, Mac, Apple TV and Apple Vision Pro; an APK for Android TV, Fire TV and Android (arm64, Android 9+,
+          <a href={site.androidReleasesURL}>all releases</a>). Aether includes no channels or content — you bring your own.
+        </p>
       </div>
 
       <div class="hero-visual">
@@ -272,9 +281,14 @@ const faq = [
         <img class="hero-icon" src="/img/icon.svg" alt="" width="88" height="88" />
         <h2>Ready when you are.</h2>
         <p class="lede">Bring your provider or your server. Aether does the rest.</p>
-        <a class="btn btn-primary btn-store" href={site.testFlightURL}>
-          <Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta
-        </a>
+        <div class="actions" style="justify-content:center">
+          <a class="btn btn-primary btn-store" href={site.testFlightURL}>
+            <Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta
+          </a>
+          <a class="btn" href={site.androidAPKURL}>
+            <Icon name="download" size={18} strokeWidth={2.2} /> Android TV beta (APK)
+          </a>
+        </div>
       </div>
     </div>
   </section>

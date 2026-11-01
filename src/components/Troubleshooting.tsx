@@ -96,6 +96,23 @@ const topics: Topic[] = [
     ),
   },
   {
+    question: "The Android APK won't install",
+    keywords: "android apk install fire tv google tv shield downloader unknown sources app not installed",
+    answer: (
+      <>
+        <p>
+          The app you download it with needs permission to install apps: on Fire TV under{" "}
+          <Path>Settings → My Fire TV → Developer options → Install unknown apps</Path>, on Google TV under{" "}
+          <Path>Settings → Apps → Security &amp; restrictions → Unknown sources</Path>.
+        </p>
+        <p>
+          The device needs Android 9 or later and a 64-bit (arm64) processor. "App not installed" over an existing copy usually means
+          that copy came from somewhere else: uninstall it first, then install the APK from the releases page.
+        </p>
+      </>
+    ),
+  },
+  {
     question: "The first load takes a long time",
     keywords: "slow loading sync index catalogue first time",
     answer: (

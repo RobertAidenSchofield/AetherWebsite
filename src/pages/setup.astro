@@ -32,6 +32,7 @@ import LinkPhone from "../components/LinkPhone";
         <a href="#silo-webdav">Silo &amp; WebDAV</a>
         <strong>More</strong>
         <a href="#apple-tv">Apple TV</a>
+        <a href="#android">Android TV &amp; Fire TV</a>
         <a href="#services">Trakt, Simkl &amp; more</a>
         <a href="#profiles">Profiles &amp; parental controls</a>
       </nav>
@@ -167,6 +168,40 @@ import LinkPhone from "../components/LinkPhone";
           </ol>
           <h3>Set up on the TV</h3>
           <p>You can also fill in the form with the remote. When a text field is selected, your iPhone offers its keyboard as a notification, which is much quicker than the on-screen keyboard. For Plex and Jellyfin, a sign-in code saves typing a password at all.</p>
+        </section>
+
+        <section id="android">
+          <h2>Android TV &amp; Fire TV <span class="pill tiny">Beta</span></h2>
+          <p>
+            Aether for Android is an early beta for Android TV, Google TV, Fire TV and Nvidia Shield. It also installs on Android phones
+            and tablets. It needs Android 9 or later on a 64-bit (arm64) device, which covers nearly every current TV box and stick.
+            It's installed from an APK rather than an app store for now.
+          </p>
+          <h3>Install it</h3>
+          <ol class="steps">
+            <li>On the TV, install the free <strong>Downloader</strong> app from the Amazon Appstore or Google Play.</li>
+            <li>
+              Allow Downloader to install apps. On Fire TV this is under <span class="path">Settings → My Fire TV → Developer options →
+              Install unknown apps</span>; on Google TV, under <span class="path">Settings → Apps → Security &amp; restrictions → Unknown
+              sources</span>. Menu names vary a little between devices.
+            </li>
+            <li>
+              In Downloader, enter <code>{new URL(site.url).host}/android</code>, the short address for the latest APK. When it
+              finishes, choose <strong>Install</strong>.
+            </li>
+            <li>Open Aether, choose <strong>IPTV Subscription</strong> and add your provider, exactly as described above.</li>
+          </ol>
+          <h3>What's in the beta</h3>
+          <p>
+            IPTV providers (Xtream Codes and M3U, with the paste-a-link shortcut), Live TV with the guide, movies and series. Media
+            servers, Stalker portals, catch-up, search, favourites and profiles are still to come. The Android app keeps everything on
+            the device: it doesn't sync with Aether on Apple devices.
+          </p>
+          <h3>Updating</h3>
+          <p>
+            Download the newer APK the same way and install it over the old one; your providers stay. Every release is listed, with its
+            SHA-256 checksum, on the <a href={site.androidReleasesURL}>releases page</a>.
+          </p>
         </section>
 
         <section id="services">

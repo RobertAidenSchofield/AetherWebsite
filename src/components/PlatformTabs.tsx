@@ -67,6 +67,17 @@ const platforms: Platform[] = [
       "Profiles and progress arrive through iCloud.",
     ],
   },
+  {
+    id: "android",
+    name: "Android TV",
+    icon: "remote",
+    tagline: "Android TV and Fire TV, in beta.",
+    points: [
+      "Built for the remote: every screen works with the D-pad.",
+      "Paste your provider's link and the Xtream or M3U form fills itself in.",
+      "Live TV with the guide, movies and series. Media servers, catch-up and search are coming.",
+    ],
+  },
 ];
 
 const cards = ["art-tide", "art-lantern", "art-north", "art-signal", "art-moon"];
@@ -122,7 +133,7 @@ export default function PlatformTabs() {
             </div>
           </div>
           {platform.id === "mac" && <div className="device-foot" />}
-          {platform.id === "tv" && <div className="device-box" />}
+          {(platform.id === "tv" || platform.id === "android") && <div className="device-box" />}
         </div>
 
         <div className="platform-copy">

@@ -7,5 +7,12 @@ export default {
   supportEmail: "support@example.com",
   /** Aether's public beta. Download buttons point here until it's on the App Store. */
   testFlightURL: "https://testflight.apple.com/join/bmAGafTY",
+  /**
+   * The Android beta. "latest/download" with a fixed file name always serves
+   * the newest release of the public RobertAidenSchofield/Aether-Releases repo
+   * (the source repo stays private; its release files can't be linked).
+   */
+  androidAPKURL: "https://github.com/RobertAidenSchofield/Aether-Releases/releases/latest/download/Aether-Android.apk",
+  androidReleasesURL: "https://github.com/RobertAidenSchofield/Aether-Releases/releases",
   discordURL: "https://discord.gg/DMnQfr69Ug",
 };

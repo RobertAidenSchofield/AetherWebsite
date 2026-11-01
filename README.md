@@ -23,6 +23,7 @@ Everything site-wide is in **`site.config.mjs`**:
 | `url` | Canonical links, social previews, `sitemap-index.xml`, `robots.txt` |
 | `supportEmail` | Support, Privacy and Anti-piracy pages |
 | `testFlightURL` | Download buttons (the public TestFlight beta) |
+| `androidAPKURL`, `androidReleasesURL` | Android download buttons, the setup guide and FAQ. The APK lives in the public `RobertAidenSchofield/Aether-Releases` repo (the source repo is private); `public/_redirects` also serves it at `/android`, a short address to type with a TV remote |
 | `discordURL` | Footer and Support |
 
 Set `url` and `supportEmail` before publishing. Both still hold `example.com` placeholders.

@@ -94,6 +94,13 @@ const paths = {
     </>
   ),
   vision: <path d="M2 11c0-3 3-5 10-5s10 2 10 5-1.5 6-5 6c-2.5 0-3-2-5-2s-2.5 2-5 2c-3.5 0-5-3-5-6z" />,
+  remote: (
+    <>
+      <rect x="7" y="2" width="10" height="20" rx="4" />
+      <circle cx="12" cy="8" r="2.5" />
+      <path d="M12 14v.01M12 17.5v.01" />
+    </>
+  ),
   discord: (
     <>
       <path d="M8.5 15.5c2.2 1 4.8 1 7 0" />
