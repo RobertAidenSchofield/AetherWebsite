@@ -4,13 +4,13 @@ import Base from "../layouts/Base.astro";
 import LinkPhone from "../components/LinkPhone";
 ---
 
-<Base title="Setup Guides — Aether" description="How to add an IPTV subscription (Xtream Codes, M3U, Stalker) or a Jellyfin, Emby, Plex, Silo or WebDAV server to Aether, and set up Apple TV from your iPhone.">
+<Base title="Setup Guides — Onda" description="How to add an IPTV subscription (Xtream Codes, M3U, Stalker) or a Jellyfin, Emby, Plex, Silo or WebDAV server to Onda, and set up Apple TV from your iPhone.">
 
     <section class="page-head">
       <div class="wrap">
         <span class="eyebrow">Setup guides</span>
         <h1>Add what you watch.</h1>
-        <p class="lede" style="max-width:680px">Aether plays sources you add yourself. Most take under a minute: paste a link, pick a server it found, or sign in with a code.</p>
+        <p class="lede" style="max-width:680px">Onda plays sources you add yourself. Most take under a minute: paste a link, pick a server it found, or sign in with a code.</p>
       </div>
     </section>
 
@@ -41,28 +41,28 @@ import LinkPhone from "../components/LinkPhone";
         <div class="notice">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
           <div>
-            <p><strong>Aether includes no channels or content, and we can't recommend where to get any.</strong></p>
+            <p><strong>Onda includes no channels or content, and we can't recommend where to get any.</strong></p>
             <p class="muted">Add only sources you're entitled to watch. See the <a href="/anti-piracy/">anti-piracy policy</a>.</p>
           </div>
         </div>
 
         <section id="first-run">
           <h2>Your first source</h2>
-          <p>The first time you open Aether, it asks what you want to watch with:</p>
+          <p>The first time you open Onda, it asks what you want to watch with:</p>
           <ul>
             <li><strong>IPTV Subscription</strong> — live TV, a guide, movies and series from a provider you pay for.</li>
             <li><strong>Media Server</strong> — your own library on Jellyfin, Emby, Plex, Silo or a WebDAV share.</li>
           </ul>
-          <p>Pick one and Aether shows only the fields it needs. You can add more sources of either kind later in <span class="path">Settings → Connections</span>.</p>
-          <p>After you add a source, Aether downloads its catalogue and indexes it on your device. A large catalogue can take a few minutes the first time; later updates are much quicker.</p>
+          <p>Pick one and Onda shows only the fields it needs. You can add more sources of either kind later in <span class="path">Settings → Connections</span>.</p>
+          <p>After you add a source, Onda downloads its catalogue and indexes it on your device. A large catalogue can take a few minutes the first time; later updates are much quicker.</p>
         </section>
 
         <section id="paste-link">
           <h2>Paste your provider's link</h2>
-          <p>Providers usually send a link or a login by email. You don't need to know what kind it is — paste it into <strong>Quick Setup</strong> at the top of the IPTV form and Aether works it out:</p>
+          <p>Providers usually send a link or a login by email. You don't need to know what kind it is — paste it into <strong>Quick Setup</strong> at the top of the IPTV form and Onda works it out:</p>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>What you paste</th><th>What Aether does</th></tr></thead>
+              <thead><tr><th>What you paste</th><th>What Onda does</th></tr></thead>
               <tbody>
                 <tr><td>A link with <code>get.php</code> or <code>player_api.php</code> and a username and password</td><td>Recognises an Xtream login and fills in the server, username and password.</td></tr>
                 <tr><td>Just a server address, such as <code>http://line.example.com:8080</code></td><td>Fills in the Xtream server. Add your username and password below it.</td></tr>
@@ -71,9 +71,9 @@ import LinkPhone from "../components/LinkPhone";
               </tbody>
             </table>
           </div>
-          <p>The name is optional. Leave it empty and Aether names the playlist after the provider's address.</p>
+          <p>The name is optional. Leave it empty and Onda names the playlist after the provider's address.</p>
           <h3>Try it</h3>
-          <p>Paste your link here to see what Aether will do with it. It's checked in your browser and never sent anywhere.</p>
+          <p>Paste your link here to see what Onda will do with it. It's checked in your browser and never sent anywhere.</p>
           <LinkPhone client:visible />
         </section>
 
@@ -84,7 +84,7 @@ import LinkPhone from "../components/LinkPhone";
             <li>Enter the <strong>server</strong> exactly as your provider gave it, including the port — for example <code>http://line.example.com:8080</code>.</li>
             <li>Enter your <strong>username</strong> and <strong>password</strong>, then tap <strong>Add Playlist</strong>.</li>
           </ol>
-          <p>Xtream gives Aether everything at once: live channels with their guide, movies, series and catch-up where your provider offers it.</p>
+          <p>Xtream gives Onda everything at once: live channels with their guide, movies, series and catch-up where your provider offers it.</p>
         </section>
 
         <section id="m3u">
@@ -114,9 +114,9 @@ import LinkPhone from "../components/LinkPhone";
 
         <section id="find-server">
           <h2>Finding your server</h2>
-          <p>When you choose <strong>Media Server</strong>, Aether looks for Jellyfin, Emby and Plex servers on your Wi-Fi network and lists the ones it finds. Tap one to fill in its address.</p>
-          <p>If yours isn't listed, type its address. For an address on your home network without a port, such as <code>192.168.1.20</code>, Aether also tries the usual ports: <code>8096</code> for Jellyfin and Emby, <code>32400</code> for Plex. For a server outside your home, enter the full address, such as <code>https://media.example.com</code>.</p>
-          <p class="tip"><strong>Allow local network access.</strong> The first time, iOS asks whether Aether may find devices on your local network. Aether needs that to reach servers at home. If you declined, turn it on in the iPhone's <span class="path">Settings → Privacy &amp; Security → Local Network</span>.</p>
+          <p>When you choose <strong>Media Server</strong>, Onda looks for Jellyfin, Emby and Plex servers on your Wi-Fi network and lists the ones it finds. Tap one to fill in its address.</p>
+          <p>If yours isn't listed, type its address. For an address on your home network without a port, such as <code>192.168.1.20</code>, Onda also tries the usual ports: <code>8096</code> for Jellyfin and Emby, <code>32400</code> for Plex. For a server outside your home, enter the full address, such as <code>https://media.example.com</code>.</p>
+          <p class="tip"><strong>Allow local network access.</strong> The first time, iOS asks whether Onda may find devices on your local network. Onda needs that to reach servers at home. If you declined, turn it on in the iPhone's <span class="path">Settings → Privacy &amp; Security → Local Network</span>.</p>
         </section>
 
         <section id="jellyfin">
@@ -124,7 +124,7 @@ import LinkPhone from "../components/LinkPhone";
           <ol class="steps">
             <li>Choose <strong>Media Server</strong> and pick your server, or type its address.</li>
             <li>Enter your <strong>username</strong> and <strong>password</strong> on that server.</li>
-            <li>Tap <strong>Add Server</strong>. Aether checks the address and signs in.</li>
+            <li>Tap <strong>Add Server</strong>. Onda checks the address and signs in.</li>
           </ol>
           <p>On Jellyfin you can skip the password and sign in with a code instead — see the next section.</p>
         </section>
@@ -133,9 +133,9 @@ import LinkPhone from "../components/LinkPhone";
           <h2>Jellyfin Quick Connect</h2>
           <p>Quick Connect signs you in by approving a short code on a device where you're already signed in to Jellyfin. It's handy on Apple TV, where typing a password with the remote is slow.</p>
           <ol class="steps">
-            <li>In Aether, enter the server's address (or pick it from the list), then tap <strong>Sign In with Jellyfin</strong>. Aether shows a code.</li>
+            <li>In Onda, enter the server's address (or pick it from the list), then tap <strong>Sign In with Jellyfin</strong>. Onda shows a code.</li>
             <li>On your phone, computer or another Jellyfin app, open your user menu and choose <strong>Quick Connect</strong>.</li>
-            <li>Enter the code and approve it. Aether signs in on its own a moment later.</li>
+            <li>Enter the code and approve it. Onda signs in on its own a moment later.</li>
           </ol>
           <p class="tip"><strong>Quick Connect is off?</strong> The server's administrator turns it on in the Jellyfin dashboard under <span class="path">General</span>. Or sign in with your username and password.</p>
         </section>
@@ -143,9 +143,9 @@ import LinkPhone from "../components/LinkPhone";
         <section id="plex">
           <h2>Plex</h2>
           <ol class="steps">
-            <li>Choose <strong>Media Server</strong>, then tap <strong>Sign In with Plex</strong>. Aether shows a code.</li>
+            <li>Choose <strong>Media Server</strong>, then tap <strong>Sign In with Plex</strong>. Onda shows a code.</li>
             <li>On any device, go to <a href="https://plex.tv/link">plex.tv/link</a> and sign in to your Plex account. On Apple TV you can scan the QR code instead.</li>
-            <li>Enter the code. Aether finds your Plex servers and connects.</li>
+            <li>Enter the code. Onda finds your Plex servers and connects.</li>
           </ol>
           <p>You can also type your Plex server's address — for example <code>192.168.1.20:32400</code>.</p>
         </section>
@@ -153,9 +153,9 @@ import LinkPhone from "../components/LinkPhone";
         <section id="silo-webdav">
           <h2>Silo &amp; WebDAV</h2>
           <h3>Silo</h3>
-          <p>Enter your Silo server's address and sign in. Aether finds Silo's Jellyfin-compatible service and imports your libraries.</p>
+          <p>Enter your Silo server's address and sign in. Onda finds Silo's Jellyfin-compatible service and imports your libraries.</p>
           <h3>WebDAV share</h3>
-          <p>Enter the folder's WebDAV address — for example <code>https://nas.example.com/dav/Movies/</code> — with the username and password for the share. Aether walks the folders and recognises movies and episodes from their file names. Subtitle files next to a video (<code>.srt</code>, <code>.vtt</code>, <code>.ass</code>, <code>.sub</code>) and folder artwork such as <code>poster.jpg</code> are picked up too.</p>
+          <p>Enter the folder's WebDAV address — for example <code>https://nas.example.com/dav/Movies/</code> — with the username and password for the share. Onda walks the folders and recognises movies and episodes from their file names. Subtitle files next to a video (<code>.srt</code>, <code>.vtt</code>, <code>.ass</code>, <code>.sub</code>) and folder artwork such as <code>poster.jpg</code> are picked up too.</p>
         </section>
 
         <section id="apple-tv">
@@ -163,7 +163,7 @@ import LinkPhone from "../components/LinkPhone";
           <h3>Set up with your iPhone</h3>
           <ol class="steps">
             <li>On the Apple TV's welcome screen, choose <strong>Set Up with iPhone</strong>. A QR code appears.</li>
-            <li>Scan it with your iPhone's camera. It opens Aether's add form on the phone — or the TestFlight beta, if Aether isn't installed yet.</li>
+            <li>Scan it with your iPhone's camera. It opens Onda's add form on the phone — or the TestFlight beta, if Onda isn't installed yet.</li>
             <li>Add your provider or server on the iPhone. It appears on the Apple TV by itself, as long as both are signed in to the same iCloud account.</li>
           </ol>
           <h3>Set up on the TV</h3>
@@ -173,8 +173,8 @@ import LinkPhone from "../components/LinkPhone";
         <section id="android">
           <h2>Android TV &amp; Fire TV <span class="pill tiny">Beta</span></h2>
           <p>
-            Aether for Android is an early beta for Android TV, Google TV, Fire TV and Nvidia Shield. It also installs on Android phones
-            and tablets. It needs Android 9 or later on a 64-bit (arm64) device, which covers nearly every current TV box and stick.
+            Onda for Android is an early beta for Android TV, Google TV, Fire TV and Nvidia Shield. It also installs on Android phones
+            and tablets. It needs Android 9 or later on an ARM device, 64-bit or 32-bit, which covers nearly every TV box and stick, including budget ones like onn.
             It's installed from an APK rather than an app store for now.
           </p>
           <h3>Install it</h3>
@@ -189,13 +189,13 @@ import LinkPhone from "../components/LinkPhone";
               In Downloader, enter <code>{new URL(site.url).host}/android</code>, the short address for the latest APK. When it
               finishes, choose <strong>Install</strong>.
             </li>
-            <li>Open Aether, choose <strong>IPTV Subscription</strong> and add your provider, exactly as described above.</li>
+            <li>Open Onda, choose <strong>IPTV Subscription</strong> and add your provider, exactly as described above.</li>
           </ol>
           <h3>What's in the beta</h3>
           <p>
             IPTV providers (Xtream Codes and M3U, with the paste-a-link shortcut), Live TV with the guide, movies and series. Media
             servers, Stalker portals, catch-up, search, favourites and profiles are still to come. The Android app keeps everything on
-            the device: it doesn't sync with Aether on Apple devices.
+            the device: it doesn't sync with Onda on Apple devices.
           </p>
           <h3>Updating</h3>
           <p>

@@ -1,6 +1,6 @@
-# Aether website
+# Onda website
 
-The marketing, support and legal site for [Aether](https://testflight.apple.com/join/bmAGafTY), built with [Astro](https://astro.build) and React.
+The marketing, support and legal site for [Onda](https://testflight.apple.com/join/bmAGafTY) (App Store: Onda Player; formerly Aether), built with [Astro](https://astro.build) and React.
 
 Pages are static HTML. Interactive parts are React components ("islands") that only load in the browser when they scroll into view, so the site stays fast and search engines see every word.
 
@@ -50,9 +50,9 @@ All in `src/components/`. Each is a React component placed in a page with a `cli
 |---|---|
 | `HeroTV` | The Apple TV home screen: the hero cycles through titles like the app's carousel, and focus moves along Continue Watching. Click a card or use ← →. It pauses on hover, has a pause button, and stays still when the viewer prefers reduced motion. |
 | `GuideDemo` | A TV guide laid out around the visitor's own clock. The "now" line moves, and a programme opens its details, with catch-up for ones that already aired. |
-| `EngineDemo` | Plays out engine fallback ("Stream fails") and the Aether Engine riding out a live dropout ("Live dropout"), with live telemetry and an event log. |
-| `LinkPhone` | Paste a provider link and an iPhone fills in Aether's add form exactly as the app would. It runs in the browser only. |
-| `PlatformTabs` | iPhone, iPad, Mac, Apple TV and Vision Pro, each framed with what Aether does best there. |
+| `EngineDemo` | Plays out engine fallback ("Stream fails") and the Onda Engine riding out a live dropout ("Live dropout"), with live telemetry and an event log. |
+| `LinkPhone` | Paste a provider link and an iPhone fills in Onda's add form exactly as the app would. It runs in the browser only. |
+| `PlatformTabs` | iPhone, iPad, Mac, Apple TV and Vision Pro, each framed with what Onda does best there. |
 | `Troubleshooting` | The support topics, filtered as you type. |
 
 `src/lib/iptvLink.ts` is a TypeScript port of the app's `IPTVLink` and `ServerAddressHelp`. Its tests mirror the app's `OnboardingSetupTests`. **If the app's link recognition changes, change both.**
@@ -71,13 +71,13 @@ Once the site is live, set these in App Store Connect under App Information:
 
 ## Universal link for the Apple TV QR code
 
-`public/.well-known/apple-app-site-association` gives `/add` to the app `HP29QFDGT9.com.robertschofield.aether`. To use it, change the app:
+`public/.well-known/apple-app-site-association` gives `/add` to the app `HP29QFDGT9.com.robertschofield.onda`. To use it, change the app:
 
 1. Add the **Associated Domains** capability with `applinks:<domain>`.
 2. Map an incoming `https://<domain>/add` (`onContinueUserActivity(NSUserActivityTypeBrowsingWeb)`) to `DeepLink.addSource`.
 3. Change `OnboardingView.phoneSetupLink` to `https://<domain>/add`.
 
-The QR code then opens the add form when Aether is installed, and this site's `/add` page, with a TestFlight link, when it isn't.
+The QR code then opens the add form when Onda is installed, and this site's `/add` page, with a TestFlight link, when it isn't.
 
 ## Before publishing
 

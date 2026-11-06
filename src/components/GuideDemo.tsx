@@ -1,4 +1,4 @@
-// A working slice of Aether's TV guide, on the visitor's own clock: the
+// A working slice of Onda's TV guide, on the visitor's own clock: the
 // schedule is laid out around the current time, the red line moves, and a
 // programme opens its details — with catch-up for ones that already aired on
 // channels that offer it. Channels and programmes are made up.

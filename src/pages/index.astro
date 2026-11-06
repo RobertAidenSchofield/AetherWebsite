@@ -2,6 +2,7 @@
 import site from "../../site.config.mjs";
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon";
+import TideMark from "../components/TideMark.astro";
 import HeroTV from "../components/HeroTV";
 import GuideDemo from "../components/GuideDemo";
 import EngineDemo from "../components/EngineDemo";
@@ -9,20 +10,20 @@ import LinkPhone from "../components/LinkPhone";
 import PlatformTabs from "../components/PlatformTabs";
 
 const privacy = [
-  { icon: "person", title: "No account", text: "There's nothing to sign up for. Aether runs no servers of its own and never sees what you watch." },
-  { icon: "eyeOff", title: "No ads or tracking", text: "No analytics kits, no advertising and no tracking across apps or websites." },
-  { icon: "cloud", title: "Encrypted in your iCloud", text: "Your sources and logins sync end-to-end encrypted in your own iCloud account." },
-  { icon: "chip", title: "Smart, on device", text: "Search by description and live captions run on your device, not in the cloud." },
-] as const;
+  { title: "No account", text: "There's nothing to sign up for. Onda runs no servers of its own and never sees what you watch." },
+  { title: "No ads or tracking", text: "No analytics kits, no advertising and no tracking across apps or websites." },
+  { title: "Encrypted in your iCloud", text: "Your sources and logins sync end-to-end encrypted in your own iCloud account." },
+  { title: "Smart, on device", text: "Search by description and live captions run on your device, not in the cloud." },
+];
 
 const faq = [
   {
-    q: "What do I need to use Aether?",
-    a: "Either an IPTV subscription — the link or login your provider sent (Xtream Codes, M3U or a Stalker portal) — or your own media server: Jellyfin, Emby, Plex, Silo or a WebDAV share. You can add both.",
+    q: "What do I need to use Onda?",
+    a: "Either an IPTV subscription (the link or login your provider sent: Xtream Codes, M3U or a Stalker portal) or your own media server: Jellyfin, Emby, Plex, Silo or a WebDAV share. You can add both.",
   },
   {
     q: "Do I need to create an account?",
-    a: "No. Aether has no account of its own. Trakt, Simkl, OpenSubtitles and PublicMetaDB are optional connections you can add later in Settings → Connected Services.",
+    a: "No. Onda has no account of its own. Trakt, Simkl, OpenSubtitles and PublicMetaDB are optional connections you can add later in Settings → Connected Services.",
   },
   {
     q: "Will my Apple TV get what I set up on my iPhone?",
@@ -30,7 +31,7 @@ const faq = [
   },
   {
     q: "Is there an Android version?",
-    a: "Yes, in beta: Aether for Android TV, Fire TV and Android (Android 9 or later, arm64). It covers IPTV providers, Live TV with the guide, movies and series; media servers and more are coming. Download the APK from the button above, and see the setup guide for installing it on a TV.",
+    a: "Yes, in beta: Onda for Android TV, Fire TV and Android (Android 9 or later). It covers IPTV providers, Live TV with the guide, movies and series; media servers and more are coming. Download the APK below, and see the setup guide for installing it on a TV.",
   },
   {
     q: "Can I watch offline?",
@@ -40,76 +41,78 @@ const faq = [
 ---
 
 <Base
-  title="Aether — IPTV & Media Server Player for Apple Devices"
-  description="Aether plays your IPTV subscription and your own Jellyfin, Emby or Plex server with a real TV guide, rich artwork and a player built to keep going. For iPhone, iPad, Mac, Apple TV and Apple Vision Pro."
+  title="Onda Player: IPTV & Media Server Player for Apple TV, iPhone and Mac"
+  description="Onda plays your IPTV subscription and your own Jellyfin, Emby or Plex server with a real TV guide, rich artwork and a player built to keep going. For iPhone, iPad, Mac, Apple TV, Apple Vision Pro and Android TV."
 >
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
       <div class="hero-copy">
-        <img class="hero-icon" src="/img/icon.svg" alt="" width="88" height="88" />
-        <span class="eyebrow">IPTV &amp; media server player</span>
-        <h1>Everything you watch, <span class="gradient-text">in one luminous player.</span></h1>
+        <h1>Your media, on&nbsp;air.</h1>
         <p class="lede">
-          Aether plays your IPTV subscription and your own media server — Jellyfin, Emby, Plex — with a real TV guide, beautiful
-          artwork and a player built to keep going.
+          Onda plays your IPTV subscription and your own Jellyfin, Emby or Plex server, with a real TV guide, rich artwork and a player
+          built to keep going.
         </p>
         <div class="actions">
           <a class="btn btn-primary btn-store" href={site.testFlightURL}>
             <Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta
           </a>
-          <a class="btn" href={site.androidAPKURL}>
-            <Icon name="download" size={18} strokeWidth={2.2} /> Android TV beta (APK)
-          </a>
+          <a class="btn btn-store" href="#get">Android TV and more</a>
         </div>
         <p class="hero-note">
-          TestFlight for iPhone, iPad, Mac, Apple TV and Apple Vision Pro; an APK for Android TV, Fire TV and Android (arm64, Android 9+,
-          <a href={site.androidReleasesURL}>all releases</a>). Aether includes no channels or content — you bring your own.
+          For iPhone, iPad, Mac, Apple TV and Apple Vision Pro, with a beta for Android TV and Fire TV. Onda is a player and doesn't provide
+          any content. Only add playlists and servers you're entitled to use.
         </p>
       </div>
-
-      <div class="hero-visual">
-        <HeroTV client:load />
-        <p class="hero-hint"><span class="hint-pointer">Click a title, or focus the screen and use ← →</span><span class="hint-touch">Tap a title to bring it up</span></p>
-      </div>
+      <figure class="hero-mark">
+        <TideMark id="hero-mark" mode="rise" size={400} />
+        <figcaption>Onda means wave.<br />In Italian, "in onda" means on air.</figcaption>
+      </figure>
     </div>
   </section>
 
+  <svg class="tide-edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 58 C 240 8, 480 8, 720 46 S 1200 96, 1440 26 V90 H0 Z" />
+  </svg>
+  <section class="stage on-elevated" aria-label="Onda on Apple TV">
+    <div class="wrap hero-visual">
+      <HeroTV client:load />
+      <p class="hero-hint"><span class="hint-pointer">Click a title, or focus the screen and use ← →</span><span class="hint-touch">Tap a title to bring it up</span></p>
+    </div>
+  </section>
+  <svg class="tide-edge flip" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 58 C 240 8, 480 8, 720 46 S 1200 96, 1440 26 V90 H0 Z" />
+  </svg>
+
   <section id="features">
     <div class="wrap">
-      <div class="section-head center" data-reveal>
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Two players in one</span>
         <h2>Your provider and your server, side by side.</h2>
         <p class="lede">Choose what you watch with when you start. Every screen follows the source it belongs to, so there's never a "current playlist" to switch.</p>
       </div>
 
-      <div class="grid grid-2">
-        <article class="card side" data-reveal>
+      <div class="sides" data-reveal>
+        <article class="side">
           <div class="side-head">
-            <span class="icon-dot"><Icon name="antenna" /></span>
-            <div>
-              <span class="pill live">Live IPTV</span>
-              <h3>IPTV Subscription</h3>
-            </div>
+            <span class="pill live">Live IPTV</span>
+            <h3>IPTV Subscription</h3>
           </div>
           <p>Live TV, a guide, movies and series from your provider.</p>
           <div class="chips">
             <span class="chip">Xtream Codes</span><span class="chip">M3U / M3U8</span><span class="chip">Stalker portals</span><span class="chip">XMLTV guides</span>
           </div>
           <ul class="checks">
-            <li><strong>Live TV with a real guide</strong> — channels by category and a multi-day timeline.</li>
+            <li><strong>Live TV with a real guide:</strong> channels by category and a multi-day timeline.</li>
             <li><strong>Catch-up</strong> on Xtream and M3U, for programmes that already aired.</li>
-            <li><strong>Multi-View</strong> — up to four channels at once.</li>
+            <li><strong>Multi-View:</strong> up to four channels at once.</li>
             <li><strong>Live scores</strong> for 150+ competitions, matched to channels you already have.</li>
           </ul>
         </article>
 
-        <article class="card side server" data-reveal>
+        <article class="side">
           <div class="side-head">
-            <span class="icon-dot"><Icon name="server" /></span>
-            <div>
-              <span class="pill server">Media server</span>
-              <h3>Your Own Library</h3>
-            </div>
+            <span class="pill server">Media server</span>
+            <h3>Your Own Library</h3>
           </div>
           <p>Your films and shows on your own server or file share.</p>
           <div class="chips">
@@ -117,14 +120,14 @@ const faq = [
           </div>
           <ul class="checks">
             <li><strong>Artwork, cast, trailers and ratings</strong> from TMDB, IMDb, Rotten Tomatoes, Metacritic and Letterboxd.</li>
-            <li><strong>Explore, Trending and For You</strong> — discovery built around your library.</li>
+            <li><strong>Explore, Trending and For You:</strong> discovery built around your library.</li>
             <li><strong>Trakt and Simkl</strong> keep your history and watchlists in step.</li>
             <li><strong>Choose Stream</strong> lists every version your server has, with its tracks and bitrate.</li>
           </ul>
         </article>
       </div>
 
-      <p class="card shared-note" data-reveal>Both sides share the library, search, favourites, downloads, Continue Watching and the player.</p>
+      <p class="shared-note" data-reveal>Both sides share the library, search, favourites, downloads, Continue Watching and the player.</p>
     </div>
   </section>
 
@@ -137,8 +140,8 @@ const faq = [
         <ul class="checks">
           <li><strong>Catch-up</strong> for programmes that already aired.</li>
           <li><strong>Multi-View</strong> for up to four channels in a grid.</li>
-          <li><strong>Sports</strong> — follow teams and open a match on a channel you have.</li>
-          <li><strong>On Apple TV</strong>, a live preview of the focused channel and quick zapping.</li>
+          <li><strong>Sports:</strong> follow teams and open a match on a channel you have.</li>
+          <li><strong>On Apple TV,</strong> a live preview of the focused channel and quick zapping.</li>
         </ul>
         <p class="demo-hint"><Icon name="arrow" size={16} strokeWidth={2} /> This guide runs on your clock. Pick a programme to see what you could do with it.</p>
       </div>
@@ -153,15 +156,15 @@ const faq = [
       <div class="copy" data-reveal>
         <span class="eyebrow">The player</span>
         <h2>Built to keep playing.</h2>
-        <p class="lede">Aether carries four playback engines in a priority list. If a stream fails or stalls, playback moves on to the next one by itself.</p>
+        <p class="lede">Onda carries four playback engines in a priority list. If a stream fails or stalls, playback moves on to the next one by itself.</p>
         <p class="muted">
-          <strong class="text-strong">Aether Engine</strong> <span class="pill tiny">Beta</span> is our own engine, built on FFmpeg&nbsp;9 for
+          <strong class="text-strong">Onda Engine</strong> <span class="pill tiny">Beta</span> is our own engine, built on FFmpeg&nbsp;9 for
           long-running live streams. It reconnects inside the stream, warns before a stall instead of freezing, quietly builds a few seconds
           of cushion, and recovers from the broadcast clock wrap that freezes other players after a day on air.
         </p>
         <ul class="checks">
           <li><strong>Skip Intro and Next Up</strong> for series.</li>
-          <li><strong>Subtitles your way</strong> — search OpenSubtitles and style them fully.</li>
+          <li><strong>Subtitles your way:</strong> search OpenSubtitles and style them fully.</li>
           <li><strong>Live captions</strong> generated on your device when a stream has none.</li>
           <li><strong>Picture in Picture, AirPlay</strong> and lock-screen controls.</li>
           <li><strong>Prefer another player?</strong> Hand off to Infuse, VLC or VidHub.</li>
@@ -179,26 +182,26 @@ const faq = [
         <span class="eyebrow">Setup</span>
         <h2>Paste a link. That's the setup.</h2>
         <p class="lede">
-          Providers send links in a handful of formats, and Aether recognises all of them. Try it: paste one below and watch the form fill
+          Providers send links in a handful of formats, and Onda recognises all of them. Try it: paste one below and watch the form fill
           itself in, exactly as it does in the app.
         </p>
       </div>
       <div data-reveal>
         <LinkPhone client:visible />
       </div>
-      <div class="grid grid-3 setup-more">
-        <div class="card feature" data-reveal>
-          <span class="icon-dot"><Icon name="server" /></span>
+      <div class="ruled" data-reveal>
+        <div>
+          <Icon name="server" />
           <h3>Servers find themselves</h3>
           <p>Jellyfin, Emby and Plex servers on your Wi-Fi appear as you open the form.</p>
         </div>
-        <div class="card feature" data-reveal>
-          <span class="icon-dot"><Icon name="lock" /></span>
+        <div>
+          <Icon name="lock" />
           <h3>Sign in with a code</h3>
           <p>Jellyfin Quick Connect and Plex sign-in use a short code instead of a password.</p>
         </div>
-        <div class="card feature" data-reveal>
-          <span class="icon-dot"><Icon name="appletv" /></span>
+        <div>
+          <Icon name="appletv" />
           <h3>Set up Apple TV from iPhone</h3>
           <p>Scan the code on the TV, add your source on the phone, and it arrives through iCloud.</p>
         </div>
@@ -207,12 +210,12 @@ const faq = [
     </div>
   </section>
 
-  <section id="platforms">
+  <section id="platforms" class="on-elevated">
     <div class="wrap">
       <div class="section-head center" data-reveal>
-        <span class="eyebrow">Every Apple screen</span>
+        <span class="eyebrow">Every screen</span>
         <h2>One app for every screen you own.</h2>
-        <p class="lede">Profiles, watch progress, favourites and followed teams sync through your iCloud account, so you pick up wherever you left off.</p>
+        <p class="lede">On Apple devices, profiles, watch progress, favourites and followed teams sync through your iCloud account, so you pick up wherever you left off.</p>
       </div>
       <div data-reveal>
         <PlatformTabs client:visible />
@@ -221,27 +224,26 @@ const faq = [
   </section>
 
   <section id="privacy">
-    <div class="wrap">
-      <div class="section-head center" data-reveal>
+    <div class="wrap split">
+      <div class="copy" data-reveal>
         <span class="eyebrow">Privacy</span>
         <h2>What you watch stays yours.</h2>
+        <p><a href="/privacy/">Read the privacy policy →</a></p>
       </div>
-      <div class="privacy-band">
+      <div class="privacy-list" data-reveal>
         {privacy.map((item) => (
-          <div class="card feature" data-reveal>
-            <span class="icon-dot"><Icon name={item.icon} /></span>
+          <div>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </div>
         ))}
       </div>
-      <p class="center-link"><a href="/privacy/">Read the privacy policy →</a></p>
     </div>
   </section>
 
   <section id="faq">
     <div class="narrow">
-      <div class="section-head center" data-reveal>
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Questions</span>
         <h2>Good to know.</h2>
       </div>
@@ -249,8 +251,8 @@ const faq = [
       <div class="notice" data-reveal>
         <Icon name="warning" strokeWidth={2} />
         <div>
-          <p><strong>Aether is a player. It comes with no channels, streams or media.</strong></p>
-          <p class="muted">Add only sources you're entitled to watch. <a href="/anti-piracy/">Our anti-piracy policy</a></p>
+          <p><strong>Onda is a player and doesn't provide any content.</strong></p>
+          <p class="muted">Only add playlists and servers you're entitled to use. <a href="/anti-piracy/">Our anti-piracy policy</a></p>
         </div>
       </div>
 
@@ -265,7 +267,7 @@ const faq = [
           <summary>A channel won't play. What can I try?</summary>
           <div class="answer">
             <p>
-              Aether already tries its other engines when one fails. If a stream still won't start, check it plays in your provider's own
+              Onda already tries its other engines when one fails. If a stream still won't start, check it plays in your provider's own
               app, and that you're not over your subscription's connection limit. The <a href="/support/#troubleshooting">troubleshooting
               guide</a> covers more.
             </p>
@@ -275,21 +277,44 @@ const faq = [
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="narrow">
-      <div class="card cta" data-reveal>
-        <img class="hero-icon" src="/img/icon.svg" alt="" width="88" height="88" />
+  <section id="get" class="get">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Get Onda</span>
         <h2>Ready when you are.</h2>
-        <p class="lede">Bring your provider or your server. Aether does the rest.</p>
-        <div class="actions" style="justify-content:center">
-          <a class="btn btn-primary btn-store" href={site.testFlightURL}>
-            <Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta
-          </a>
-          <a class="btn" href={site.androidAPKURL}>
-            <Icon name="download" size={18} strokeWidth={2.2} /> Android TV beta (APK)
-          </a>
+        <p class="lede">Bring your provider or your server. Onda does the rest.</p>
+      </div>
+      <div class="get-options" data-reveal>
+        <div class="card get-option">
+          <h3>Apple devices</h3>
+          <p>iPhone, iPad, Mac, Apple TV and Apple Vision Pro, through Apple's TestFlight beta.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href={site.testFlightURL}><Icon name="download" size={18} strokeWidth={2.2} /> Join the TestFlight beta</a>
+          </div>
+        </div>
+        <div class="card get-option">
+          <h3>Android <span class="pill tiny">Beta</span></h3>
+          <p>Android TV, Fire TV and Android phones and tablets, on Android 9 or later. <a href="/setup/#android">How to install it on a TV</a>.</p>
+          <div class="actions">
+            <a class="btn" href={site.androidAPKURL}><Icon name="download" size={18} strokeWidth={2.2} /> Download the APK</a>
+            <a class="get-small" href={site.androidReleasesURL}>All releases</a>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="water" data-reveal aria-hidden="true">
+      <svg viewBox="0 0 2880 240" preserveAspectRatio="none" focusable="false">
+        <defs>
+          <linearGradient id="water-fill" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+            <stop offset="0" stop-color="#38BDF8" /><stop offset="0.33" stop-color="#818CF8" /><stop offset="0.66" stop-color="#A855F7" /><stop offset="1" stop-color="#38BDF8" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#water-fill)" d="M0 70 C 240 16, 480 16, 720 70 S 1200 124, 1440 70 S 1920 16, 2160 70 S 2640 124, 2880 70 V240 H0 Z" />
+      </svg>
+      <svg viewBox="0 0 2880 240" preserveAspectRatio="none" focusable="false">
+        <path fill="url(#water-fill)" d="M0 40 C 240 96, 480 96, 720 40 S 1200 -16, 1440 40 S 1920 96, 2160 40 S 2640 -16, 2880 40 V240 H0 Z" />
+      </svg>
     </div>
   </section>
 </Base>

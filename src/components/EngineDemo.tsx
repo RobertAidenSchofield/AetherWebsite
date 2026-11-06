@@ -1,5 +1,5 @@
 // Plays out the two things the player does when a stream misbehaves:
-// moving on to the next engine when one fails, and — on the Aether Engine —
+// moving on to the next engine when one fails, and — on the Onda Engine —
 // riding out a live dropout by reconnecting inside the stream. A
 // dramatisation of real behaviour; nothing here touches a network.
 import { useEffect, useRef, useState } from "react";
@@ -14,10 +14,10 @@ const orders: Record<Scenario, { name: string; what: string; beta?: boolean }[]>
     { name: "KSPlayer", what: "Broad IPTV compatibility" },
     { name: "VLCKit", what: "Plays almost anything" },
     { name: "AVPlayer", what: "Apple's own, for HLS and MP4" },
-    { name: "Aether Engine", what: "Long-running live streams", beta: true },
+    { name: "Onda Engine", what: "Long-running live streams", beta: true },
   ],
   live: [
-    { name: "Aether Engine", what: "Long-running live streams", beta: true },
+    { name: "Onda Engine", what: "Long-running live streams", beta: true },
     { name: "KSPlayer", what: "Broad IPTV compatibility" },
     { name: "VLCKit", what: "Plays almost anything" },
     { name: "AVPlayer", what: "Apple's own, for HLS and MP4" },
@@ -32,9 +32,9 @@ const scripts: Record<Scenario, Step[]> = {
     { at: 3900, engine: "VLCKit", status: "playing", log: "Playing on VLCKit", buffer: 1 },
   ],
   live: [
-    { at: 0, engine: "Aether Engine", status: "playing", log: "Playing live on Aether Engine", buffer: 8 },
-    { at: 2200, engine: "Aether Engine", status: "warning", log: "Source warning: no data from the provider" },
-    { at: 4600, engine: "Aether Engine", status: "playing", log: "Reconnected inside the stream; the picture never stopped", buffer: 2.4 },
+    { at: 0, engine: "Onda Engine", status: "playing", log: "Playing live on Onda Engine", buffer: 8 },
+    { at: 2200, engine: "Onda Engine", status: "warning", log: "Source warning: no data from the provider" },
+    { at: 4600, engine: "Onda Engine", status: "playing", log: "Reconnected inside the stream; the picture never stopped", buffer: 2.4 },
   ],
 };
 

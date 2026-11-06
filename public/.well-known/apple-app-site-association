@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["HP29QFDGT9.com.robertschofield.aether"],
+        "appIDs": ["HP29QFDGT9.com.robertschofield.onda"],
         "components": [
           { "/": "/add", "comment": "Apple TV welcome screen QR code: open the add-source form" },
           { "/": "/add/", "comment": "Same, with a trailing slash" }

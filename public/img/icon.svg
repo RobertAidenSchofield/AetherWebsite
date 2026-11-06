@@ -1,32 +1,13 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="voidCanvas" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#11131C" />
-      <stop offset="100%" stop-color="#07080C" />
-    </linearGradient>
-    <radialGradient id="ambientCore" cx="50%" cy="48%" r="42%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.12" />
-      <stop offset="55%" stop-color="#6366F1" stop-opacity="0.04" />
-      <stop offset="100%" stop-color="#07080C" stop-opacity="0.0" />
-    </radialGradient>
-    <linearGradient id="pillarLeft" x1="512" y1="220" x2="272" y2="780" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#F8FAFC" />
-      <stop offset="55%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#6366F1" />
-    </linearGradient>
-    <linearGradient id="pillarRight" x1="576" y1="368" x2="752" y2="780" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#818CF8" stop-opacity="0.90" />
-      <stop offset="100%" stop-color="#6366F1" stop-opacity="0.28" />
-    </linearGradient>
-    <linearGradient id="waveCrossbar" x1="256" y1="596" x2="768" y2="596" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="50%" stop-color="#818CF8" />
-      <stop offset="100%" stop-color="#A855F7" />
-    </linearGradient>
+    <linearGradient id="canvas" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#11131C"/><stop offset="1" stop-color="#07080C"/></linearGradient>
+    <radialGradient id="core" cx="50%" cy="48%" r="42%"><stop offset="0" stop-color="#38BDF8" stop-opacity="0.12"/><stop offset="0.55" stop-color="#6366F1" stop-opacity="0.04"/><stop offset="1" stop-color="#07080C" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ring" x1="512" y1="200" x2="512" y2="824" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F8FAFC"/><stop offset="0.55" stop-color="#38BDF8"/><stop offset="1" stop-color="#6366F1"/></linearGradient>
+    <linearGradient id="wave" x1="250" y1="512" x2="774" y2="512" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#38BDF8"/><stop offset="0.5" stop-color="#818CF8"/><stop offset="1" stop-color="#A855F7"/></linearGradient>
+    <clipPath id="inner"><circle cx="512" cy="512" r="218"/></clipPath>
   </defs>
-  <rect width="1024" height="1024" rx="224" fill="url(#voidCanvas)" />
-  <rect width="1024" height="1024" rx="224" fill="url(#ambientCore)" />
-  <path d="M 588 378 L 748 748" stroke="url(#pillarRight)" stroke-width="88" stroke-linecap="round" />
-  <path d="M 512 224 L 276 748" stroke="url(#pillarLeft)" stroke-width="88" stroke-linecap="round" />
-  <path d="M 256 616 C 384 520, 640 692, 768 596" stroke="url(#waveCrossbar)" stroke-width="76" stroke-linecap="round" />
+  <rect width="1024" height="1024" rx="224" fill="url(#canvas)"/>
+  <rect width="1024" height="1024" rx="224" fill="url(#core)"/>
+  <g clip-path="url(#inner)"><path d="M 250 540 C 380 430, 644 640, 774 500 L 774 780 L 250 780 Z" fill="url(#wave)"/></g>
+  <circle cx="512" cy="512" r="262" stroke="url(#ring)" stroke-width="88"/>
 </svg>

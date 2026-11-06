@@ -8,7 +8,7 @@ const Path = ({ children }: { children: ReactNode }) => <span className="path">{
 
 const topics: Topic[] = [
   {
-    question: "Aether can't reach my media server",
+    question: "Onda can't reach my media server",
     keywords: "jellyfin emby plex server connect address port network local unreachable https",
     answer: (
       <>
@@ -19,7 +19,7 @@ const topics: Topic[] = [
           <code>https://</code>.
         </p>
         <p>
-          On iPhone and iPad, Aether needs permission to find devices on your local network. Turn it on in{" "}
+          On iPhone and iPad, Onda needs permission to find devices on your local network. Turn it on in{" "}
           <Path>Settings → Privacy &amp; Security → Local Network</Path>.
         </p>
       </>
@@ -30,8 +30,8 @@ const topics: Topic[] = [
     keywords: "discover find scan list wifi server missing",
     answer: (
       <p>
-        Aether looks for Jellyfin, Emby and Plex servers on the usual ports of your Wi-Fi network. A server on another network, behind a
-        firewall or on a custom port won't appear — type its address instead, and Aether checks it.
+        Onda looks for Jellyfin, Emby and Plex servers on the usual ports of your Wi-Fi network. A server on another network, behind a
+        firewall or on a custom port won't appear — type its address instead, and Onda checks it.
       </p>
     ),
   },
@@ -50,7 +50,7 @@ const topics: Topic[] = [
     keywords: "play error fail black screen stream channel movie engine connection limit",
     answer: (
       <>
-        <p>When a stream fails, Aether already tries its other playback engines in turn. If none can play it:</p>
+        <p>When a stream fails, Onda already tries its other playback engines in turn. If none can play it:</p>
         <ul>
           <li>Check it plays in your provider's own app or website.</li>
           <li>Check you're not over your subscription's connection limit — many providers allow one stream at a time.</li>
@@ -68,7 +68,7 @@ const topics: Topic[] = [
     answer: (
       <>
         <p>
-          Try the <strong>Aether Engine</strong> (beta) for live channels: it reconnects inside the stream and keeps a small buffer. In its
+          Try the <strong>Onda Engine</strong> (beta) for live channels: it reconnects inside the stream and keeps a small buffer. In its
           options under <Path>Settings → Player</Path>, turn on <strong>Live Cushion</strong> and <strong>Standby Reconnect</strong>.
         </p>
         <p>A wired connection or a stronger Wi-Fi signal helps more than any setting, especially on Apple TV.</p>
@@ -91,7 +91,7 @@ const topics: Topic[] = [
     answer: (
       <p>
         Sources reach other devices through iCloud. Make sure both are signed in to the same Apple Account with iCloud turned on, then open
-        Aether on both and give it a minute.
+        Onda on both and give it a minute.
       </p>
     ),
   },
@@ -106,7 +106,7 @@ const topics: Topic[] = [
           <Path>Settings → Apps → Security &amp; restrictions → Unknown sources</Path>.
         </p>
         <p>
-          The device needs Android 9 or later and a 64-bit (arm64) processor. "App not installed" over an existing copy usually means
+          The device needs Android 9 or later and an ARM processor (64-bit or 32-bit). "App not installed" over an existing copy usually means
           that copy came from somewhere else: uninstall it first, then install the APK from the releases page.
         </p>
       </>
@@ -117,7 +117,7 @@ const topics: Topic[] = [
     keywords: "slow loading sync index catalogue first time",
     answer: (
       <p>
-        The first time you add a source, Aether downloads and indexes the whole catalogue on your device so browsing and search are
+        The first time you add a source, Onda downloads and indexes the whole catalogue on your device so browsing and search are
         instant afterwards. Large catalogues can take a few minutes. Later updates only fetch what changed.
       </p>
     ),
@@ -127,7 +127,7 @@ const topics: Topic[] = [
     keywords: "new device move transfer export import backup",
     answer: (
       <p>
-        Sign in to the same iCloud account and open Aether — your sources, profiles, progress and favourites come with you. You can also
+        Sign in to the same iCloud account and open Onda — your sources, profiles, progress and favourites come with you. You can also
         export your setup to a file and import it on the other device from Settings.
       </p>
     ),

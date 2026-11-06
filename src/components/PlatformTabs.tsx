@@ -1,5 +1,5 @@
 // One app on every Apple screen: pick a device to see it framed, with what
-// Aether does best there.
+// Onda does best there.
 import { type KeyboardEvent, useRef, useState } from "react";
 import Icon, { type IconName } from "./Icon";
 

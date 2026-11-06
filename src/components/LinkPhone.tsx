@@ -1,5 +1,5 @@
 // "Paste your provider's link": the visitor pastes a link and the iPhone
-// beside it fills in Aether's add form exactly as the app would, using the
+// beside it fills in Onda's add form exactly as the app would, using the
 // same recognition rules (lib/iptvLink.ts). Runs entirely in the browser.
 import { useEffect, useId, useState } from "react";
 import { defaultName, recognise, type IPTVLink } from "../lib/iptvLink";
@@ -21,10 +21,10 @@ const summaries: Record<IPTVLink["kind"], string> = {
 };
 
 const explanations: Record<IPTVLink["kind"], string> = {
-  xtream: "An Xtream login. Aether takes the server, username and password straight from the link — there's nothing left to type.",
-  xtreamServer: "An Xtream server address. Aether fills in the server; you add the username and password your provider sent.",
-  stalker: "A Stalker (MAG) portal. Aether switches to the Stalker form; you confirm the MAC address registered with your provider.",
-  m3u: "An M3U playlist. Aether adds it as it is, with the channels, guide and VOD the playlist lists.",
+  xtream: "An Xtream login. Onda takes the server, username and password straight from the link — there's nothing left to type.",
+  xtreamServer: "An Xtream server address. Onda fills in the server; you add the username and password your provider sent.",
+  stalker: "A Stalker (MAG) portal. Onda switches to the Stalker form; you confirm the MAC address registered with your provider.",
+  m3u: "An M3U playlist. Onda adds it as it is, with the channels, guide and VOD the playlist lists.",
 };
 
 type Tab = "Xtream" | "M3U" | "Stalker";
@@ -98,7 +98,7 @@ export default function LinkPhone() {
               http:// or https://, or a server name.
             </>
           ) : (
-            "Aether recognises Xtream, M3U and Stalker links, so you never have to know which one you have."
+            "Onda recognises Xtream, M3U and Stalker links, so you never have to know which one you have."
           )}
         </p>
         <p className="linkdemo-private">
@@ -106,7 +106,7 @@ export default function LinkPhone() {
         </p>
       </div>
 
-      <div className="phone" role="img" aria-label={`Aether's add form on iPhone, showing the ${tab} form${link ? " filled in from the link" : ""}.`}>
+      <div className="phone" role="img" aria-label={`Onda's add form on iPhone, showing the ${tab} form${link ? " filled in from the link" : ""}.`}>
         <div className="phone-screen" aria-hidden="true">
           <div className="phone-island" />
           <div className="phone-body">

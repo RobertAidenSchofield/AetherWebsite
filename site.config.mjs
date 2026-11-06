@@ -5,7 +5,7 @@ export default {
   url: "https://example.com",
   /** Shown on Support, Privacy and Anti-piracy. */
   supportEmail: "support@example.com",
-  /** Aether's public beta. Download buttons point here until it's on the App Store. */
+  /** Onda's public beta. Download buttons point here until it's on the App Store. */
   testFlightURL: "https://testflight.apple.com/join/bmAGafTY",
   /**
    * The Android beta. "latest/download" with a fixed file name always serves

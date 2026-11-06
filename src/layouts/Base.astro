@@ -2,6 +2,7 @@
 // Every page's frame: head metadata, header, footer, and the small scripts
 // the whole site shares (menu, header on scroll, reveal on scroll).
 import "../styles/global.css";
+import "../styles/components.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -15,7 +16,7 @@ interface Props {
 
 const { title, description, bare = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL("/img/icon-512.png", Astro.site);
+const ogImage = new URL("/img/og.png", Astro.site);
 ---
 
 <!doctype html>
@@ -32,12 +33,14 @@ const ogImage = new URL("/img/icon-512.png", Astro.site);
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Aether" />
+    <meta property="og:site_name" content="Onda" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
   <body>
@@ -68,9 +71,16 @@ const ogImage = new URL("/img/icon-512.png", Astro.site);
 
       // The header gains a hairline once the page scrolls under it.
       const header = document.querySelector(".site-header");
-      const onScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 8);
+      // The mark in the header fills as you go down the page.
+      const onScroll = () => {
+        header?.classList.toggle("is-scrolled", window.scrollY > 8);
+        const room = document.documentElement.scrollHeight - window.innerHeight;
+        const level = room > 0 ? Math.min(window.scrollY / room, 1) : 1;
+        (header as HTMLElement | null)?.style.setProperty("--level", level.toFixed(3));
+      };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
 
       // Sections ease in as they reach the viewport (CSS skips this when the
       // viewer prefers reduced motion).

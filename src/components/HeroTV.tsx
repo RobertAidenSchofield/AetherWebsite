@@ -1,4 +1,4 @@
-// The home page's Apple TV: Aether's home screen with a hero that cycles
+// The home page's Apple TV: Onda's home screen with a hero that cycles
 // like the app's carousel and a Continue Watching row the focus moves along.
 // Every title and image is made up — no one's artwork appears on the site.
 import { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
@@ -129,7 +129,7 @@ export default function HeroTV() {
       className="tv"
       role="group"
       aria-roledescription="carousel"
-      aria-label="Aether's home screen on Apple TV"
+      aria-label="Onda's home screen on Apple TV"
       tabIndex={0}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
