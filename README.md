@@ -1,6 +1,6 @@
 # Onda website
 
-The marketing, support and legal site for [Onda](https://testflight.apple.com/join/bmAGafTY) (App Store: Onda Player; formerly Aether), built with [Astro](https://astro.build) and React.
+The marketing, support and legal site for [Onda](https://testflight.apple.com/join/d16Kf9Zn) (App Store: Onda Player; formerly Aether), built with [Astro](https://astro.build) and React.
 
 Pages are static HTML. Interactive parts are React components ("islands") that only load in the browser when they scroll into view, so the site stays fast and search engines see every word.
 

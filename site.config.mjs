@@ -6,7 +6,7 @@ export default {
   /** Shown on Support, Privacy and Anti-piracy. */
   supportEmail: "support@example.com",
   /** Onda's public beta. Download buttons point here until it's on the App Store. */
-  testFlightURL: "https://testflight.apple.com/join/bmAGafTY",
+  testFlightURL: "https://testflight.apple.com/join/d16Kf9Zn",
   /**
    * The Android beta. "latest/download" with a fixed file name always serves
    * the newest release of the public RobertAidenSchofield/Aether-Releases repo
