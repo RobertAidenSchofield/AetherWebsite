@@ -2,7 +2,8 @@
 // The Tide mark, drawn inline so the water can move. Same 1024 geometry as the
 // app's AetherRingShape and AetherTideShape (Assets/Logo/OndaGlyph.svg).
 //   rise:  the ring draws on and the water comes up, like the app's splash.
-//   level: --level (0 to 1) sets the water, used for the header's scroll gauge.
+//   level: --level (0 to 1) raises the water from the logo's resting line to
+//          full, used for the header's scroll gauge.
 interface Props {
   /** Unique on the page: the gradients and clip are named from it. */
   id: string;
@@ -23,11 +24,12 @@ const { id, mode = "static", size = 256, class: className } = Astro.props;
     <linearGradient id={`${id}-wave`} x1="250" y1="512" x2="774" y2="512" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#38BDF8" /><stop offset="0.5" stop-color="#818CF8" /><stop offset="1" stop-color="#A855F7" />
     </linearGradient>
-    <clipPath id={`${id}-inner`}><circle cx="512" cy="512" r="218" /></clipPath>
+    <!-- 4 units past the ring's inner edge (218), so no seam shows where they meet. -->
+    <clipPath id={`${id}-inner`}><circle cx="512" cy="512" r="222" /></clipPath>
   </defs>
   <g clip-path={`url(#${id}-inner)`}>
     <g class="tide-water">
-      <path class="tide-swell" d="M 200 540 C 380 430, 644 640, 824 500 L 824 860 L 200 860 Z" fill={`url(#${id}-wave)`} />
+      <path class="tide-swell" d="M 200 540 C 380 430, 644 640, 824 500 L 824 1100 L 200 1100 Z" fill={`url(#${id}-wave)`} />
     </g>
   </g>
   <circle class="tide-ring" cx="512" cy="512" r="262" stroke={`url(#${id}-ring)`} stroke-width="88" pathLength="1" />

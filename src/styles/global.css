@@ -166,9 +166,10 @@ a:hover {
   }
 }
 
-/* The header's gauge: the water follows how far down the page you are. */
+/* The header's gauge: at the top of the page it's the logo as drawn, then the
+   water rises with how far down the page you are. */
 .tide-level .tide-water {
-  transform: translateY(calc((1 - var(--level, 1)) * 150px));
+  transform: translateY(calc(var(--level, 0) * -260px));
 }
 
 /* ---------------------------------------------------------------- Header */

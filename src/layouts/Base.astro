@@ -75,7 +75,7 @@ const ogImage = new URL("/img/og.png", Astro.site);
       const onScroll = () => {
         header?.classList.toggle("is-scrolled", window.scrollY > 8);
         const room = document.documentElement.scrollHeight - window.innerHeight;
-        const level = room > 0 ? Math.min(window.scrollY / room, 1) : 1;
+        const level = room > 0 ? Math.min(window.scrollY / room, 1) : 0;
         (header as HTMLElement | null)?.style.setProperty("--level", level.toFixed(3));
       };
       onScroll();
